@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import {HttpClientModule} from "@angular/common/http";
+import { UserComponent } from './pages/user/user.component';
+import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { HomeComponent } from './pages/home/home.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { MasterComponent } from './layouts/master/master.component';
@@ -29,11 +31,14 @@ import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
     FooterComponent,
     MasterComponent,
     UserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    RegisterComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,

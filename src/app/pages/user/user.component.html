@@ -1,0 +1,64 @@
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg)">
+  <div class="bradcumbContent">
+
+    <h2>Profile</h2>
+  </div>
+</section>
+<!-- ##### Breadcumb Area End ##### -->
+
+<!-- ##### Login Area Start ##### -->
+<section class="login-area section-padding-100">
+
+<div style="border: 2px solid black" class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right" *ngIf="user">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img class="rounded-circle mt-5" width="150px"
+             src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+        <span class="font-weight-bold">{{user.full_name}}</span>
+        <span class="">{{user.email}}</span>
+      </div>
+    </div>
+
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Profile</h4>
+        </div>
+
+          <div class="row mt-4" *ngIf="user">
+
+            <div class="col-md-12"><label class="lab">Name:</label>
+              <p>{{user.full_name}}</p>
+            </div>
+            <div class="col-md-12"><label class="lab">Phone:</label>
+              <p>{{user.phone}}</p>
+            </div>
+
+            <div class="col-md-12"><label class="lab">Email:</label>
+              <p>{{user.email}}</p>
+            </div>
+            <div class="col-md-12"><label class="lab">Address:</label>
+              <p>{{user.address}}</p>
+            </div>
+            <div class="mt-7 text-center">
+              <button [routerLink]="[user.id, 'users/:id/update']" class="btn btn-primary profile-button" type="button">EDIT</button>
+            </div>
+
+          </div>
+
+
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center experience"><span><h4>Playlist</h4></span></div><br>
+        <div class="col-md-12"><label class="lab">Playlist A</label></div> <br>
+        <div class="col-md-12"><label class="lab">Playlist B</label></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</section>

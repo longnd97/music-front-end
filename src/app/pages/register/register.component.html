@@ -1,7 +1,7 @@
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg)">
   <div class="bradcumbContent">
     <p>Âm nhạc không chỉ để nghe</p>
-    <h3>Âm nhạc còn là music</h3>
+    <h1>Âm nhạc còn là music</h1>
   </div>
 </section>
 <section class="login-area section-padding-100">
@@ -9,38 +9,45 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
         <div class="login-content">
-          <h3>Đăng ký</h3>
-          <div style="text-align: right">Những thông tin có đánh dấu <strong class="text-danger">(*)</strong> là bắt
-            buộc nhập
-          </div>
+          <h2>Đăng ký</h2>
+
           <div class="register-form">
             <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="submit()" novalidate>
               <div class="form-group">
                 <label>Email</label><strong class="text-danger">*</strong>
-                <input type="email" formControlName="email" class="form-control" placeholder="Vui lòng nhập Email"
-                       required>
+                <input type="email" formControlName="email" class="form-control" placeholder="Vui lòng nhập Email">
               </div>
-<!--              <div *ngIf="email.invalid" class="alert alert-danger">-->
-<!--                <div *ngIf="email?.errors?.required">-->
-<!--                  Email không được để trống-->
-<!--                </div>-->
-<!--              </div>-->
+              <div class="alert alert-danger" *ngIf="errEmail">
+                {{ errEmail }}
+              </div>
               <div class="form-group">
                 <label>Tên tài khoản</label><strong class="text-danger">*</strong>
                 <input type="text" formControlName="user_name" class="form-control"
                        placeholder="Vui lòng nhập tên tài khoản">
+              </div>
+              <div class="alert alert-danger" *ngIf="errUserName">
+                {{ errUserName }}
               </div>
               <div class="form-group">
                 <label>Mật khẩu</label><strong class="text-danger">*</strong>
                 <input type="password" formControlName="password" class="form-control"
                        placeholder="Vui lòng nhập mật khẩu">
               </div>
+              <div class="alert alert-danger" *ngIf="errPassword">
+                {{ errPassword }}
+              </div>
               <div class="form-group">
                 <label>Nhập lại mật khẩu</label><strong class="text-danger">*</strong>
                 <input type="password" formControlName="password_confirmation" class="form-control"
                        placeholder="Vui lòng nhập lại mật khẩu">
               </div>
-              <button type="submit" class="btn oneMusic-btn mt-30">Đăng ký</button>
+              <div class="alert alert-danger" *ngIf="errPassword">
+                {{ errPassword }}
+              </div>
+              <div style="text-align: left">Những thông tin có đánh dấu <strong class="text-danger">(*)</strong> là bắt
+                buộc nhập
+              </div>
+              <button type="submit" class="btn oneMusic-btn mt-30" [disabled]="registerForm.invalid">Đăng ký</button>
             </form>
           </div>
         </div>
@@ -48,6 +55,3 @@
     </div>
   </div>
 </section>
-
-
-

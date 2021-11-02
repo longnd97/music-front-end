@@ -13,8 +13,9 @@ export class RegisterComponent implements OnInit {
   hide = true;
   status = '';
   message = '';
-  email = '';
-  password = '';
+  errEmail = '';
+  errUserName = '';
+  errPassword = '';
 
   constructor(private router: ActivatedRoute,
               private route: Router,
@@ -34,12 +35,36 @@ export class RegisterComponent implements OnInit {
   submit() {
     let data = this.registerForm?.value;
     this.authService.register(data).subscribe(res => {
+      console.log(res)
       this.status = res.status;
       this.message = res.message;
       if (this.status === 'success') {
         alert(this.message);
         this.route.navigate(['login']);
       }
+    }, (error) => {
+      this.errEmail = error.error.email[0];
+      this.errUserName = error.error.user_name[0];
+      this.errPassword = error.error.password[0];
+      console.log(error);
+      console.log(error.error.user_name[0]);
+      console.log(error);
     })
+  }
+
+  get email() {
+    return this.registerForm?.get('email')
+  }
+
+  get user_name() {
+    return this.registerForm?.get('user_name')
+  }
+
+  get password() {
+    return this.registerForm?.get('password')
+  }
+
+  get password_confirmation() {
+    return this.registerForm?.get('password_confirmation')
   }
 }

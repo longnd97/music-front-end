@@ -12,6 +12,8 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { MasterComponent } from './layouts/master/master.component';
 import { UserComponent } from './pages/user/user.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
+import {RegisterComponent} from "./pages/register/register.component";
+import { CreateSongsComponent } from './pages/create-songs/create-songs.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,10 @@ import { UpdateUserComponent } from './pages/update-user/update-user.component';
     NavbarComponent,
     FooterComponent,
     MasterComponent,
+    RegisterComponent,
     UserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    CreateSongsComponent
   ],
   imports: [
     BrowserModule,

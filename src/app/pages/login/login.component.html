@@ -10,24 +10,25 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
         <div class="login-content">
-          <h3>Welcome Back</h3>
+          <h2>Đăng nhập</h2>
           <!-- Login Form -->
           <div class="login-form">
-            <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="submit()">
+            <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="submit()" novalidate>
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="Enter E-mail">
-                       <span class="text-danger" *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">Email is required</span>
-                <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your
-                  email with anyone else.</small>
+                <label>Email</label><strong class="text-danger">*</strong>
+                <input type="email" formControlName="email" class="form-control" placeholder="Vui lòng nhập Email">
               </div>
+              
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                <span class="text-danger" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">Email is required</span>
+                <label>Mật khẩu</label><strong class="text-danger">*</strong>
+                <input type="password" formControlName="password" class="form-control"
+                       placeholder="Vui lòng nhập mật khẩu">
               </div>
-              <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
+              <div class="alert alert-danger" *ngIf="errLogin">
+                  {{errLogin}}
+              </div>
+              
+              <button type="submit" class="btn oneMusic-btn mt-30" [disabled]="loginForm.invalid">Đăng nhập</button>
             </form>
           </div>
         </div>

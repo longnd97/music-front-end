@@ -15,6 +15,7 @@ import {environment} from "../environments/environment";
 import {RegisterComponent} from './pages/register/register.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import {RegisterComponent} from './pages/register/register.component';
     NavbarComponent,
     FooterComponent,
     MasterComponent,
-    RegisterComponent
+    RegisterComponent,
+    
   ],
   imports: [
     BrowserModule,

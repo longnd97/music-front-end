@@ -9,15 +9,16 @@ import {Observable} from "rxjs";
 })
 export class UserService {
   user?:User;
+  baseUrl=environment.api_url
   constructor(private httpClient:HttpClient,
   ) { }
 
-  findById(id:number){
-    return this.httpClient.get(environment.api_url + 'users/' + id + '/profile')
+  getById(id:number){
+    return this.httpClient.get( this.baseUrl+ 'users/' + id + '/profile')
   }
 
   updateById(id:number, user:User): Observable<User>{
-    return this.httpClient.put<User>(environment.api_url + 'users/' + id +'/update',user)
+    return this.httpClient.put<User>(this.baseUrl + 'users/' + id +'/update',user)
   }
 
 }

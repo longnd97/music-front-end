@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     let id = parseInt(<string>this.router.snapshot.paramMap.get('id'))
-    this.userService.findById(id).subscribe(res=>{
+    this.userService.getById(id).subscribe(res=>{
       console.log(res)
       this.user=res
     })

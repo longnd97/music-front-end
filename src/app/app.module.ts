@@ -12,6 +12,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { MasterComponent } from './layouts/master/master.component';
 import { UserComponent } from './pages/user/user.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { UpdateUserComponent } from './pages/update-user/update-user.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

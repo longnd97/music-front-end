@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-songs',
@@ -6,10 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-songs.component.css']
 })
 export class CreateSongsComponent implements OnInit {
+  createSongForm?: FormGroup;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) {
   }
 
+  ngOnInit(): void {
+    this.createSongForm = this.fb.group({
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      file_mp3: ['', [Validators.required]],
+      image: ['', [Validators.required]],
+      author: ['', [Validators.required]],
+      album: ['', [Validators.required]],
+      category_id: ['', [Validators.required]],
+      user_id: ['', [Validators.required]]
+    })
+  }
+
+  submit() {
+
+  }
+
+  uploadImage($event: Event) {
+    
+  }
 }

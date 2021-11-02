@@ -1,1 +1,45 @@
-<p>create-songs works!</p>
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/bg-2.jpg)">
+  <div class="bradcumbContent">
+    <p>Âm nhạc không chỉ để nghe</p>
+    <h1>Âm nhạc còn là music</h1>
+  </div>
+</section>
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <h2>Tạo bài hát</h2>
+          <div class="register-form">
+            <form *ngIf="createSongForm" [formGroup]="createSongForm" (ngSubmit)="submit()" novalidate>
+              <div class="form-group">
+                <label>Tên bài hát</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="name" class="form-control" placeholder="Vui lòng nhập tên bài hát">
+              </div>
+              <div class="form-group">
+                <label>Mô tả bài hát</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="description" class="form-control"
+                       placeholder="Mô tả bài hát">
+              </div>
+              <div class="form-group">
+                <label>Chọn ảnh đại diện</label>
+                <div>
+                  <input type="file" formControlName="images" (change)="uploadImage($event)">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Mô tả bài hát</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="description" class="form-control"
+                       placeholder="Mô tả bài hát">
+              </div>
+              <div style="text-align: left">Những thông tin có đánh dấu <strong class="text-danger">(*)</strong> là bắt
+                buộc nhập
+              </div>
+              <button type="submit" class="btn oneMusic-btn mt-30" [disabled]="createSongForm.invalid">Đăng ký</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

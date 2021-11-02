@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://127.0.0.1:8000/api/'
+  api_url: 'http://127.0.0.1:8000/api/',
+  firebaseConfig: {
+    apiKey: "AIzaSyBjA2xEZYL_-F1ZhxUCBsTqUZ5pThOheKE",
+    authDomain: "music-web-5e1ef.firebaseapp.com",
+    projectId: "music-web-5e1ef",
+    storageBucket: "music-web-5e1ef.appspot.com",
+    messagingSenderId: "148848600851",
+    appId: "1:148848600851:web:ecc48510a8a9f60f8a9ce6",
+    measurementId: "G-NVL2TK8692"
+  }
 };
 
 /*

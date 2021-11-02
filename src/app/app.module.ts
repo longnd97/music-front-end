@@ -10,6 +10,8 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { NavbarComponent } from './layouts/navbar/navbar.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 import { MasterComponent } from './layouts/master/master.component';
+import { UserComponent } from './pages/user/user.component';
+import { UpdateUserComponent } from './pages/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { MasterComponent } from './layouts/master/master.component';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    MasterComponent
+    MasterComponent,
+    UserComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,

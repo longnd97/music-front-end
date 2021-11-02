@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup,Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../interfaces/user";
+import {AngularFireStorage} from "@angular/fire/compat/storage";
 
 @Component({
   selector: 'app-update-user',
@@ -16,20 +17,30 @@ export class UpdateUserComponent implements OnInit {
   constructor(private fb:FormBuilder,
               private activatedRoute:ActivatedRoute,
               private userService:UserService,
-              private router: Router
+              private router: Router,
+              private storage: AngularFireStorage,
   ) {}
 
   ngOnInit(): void {
-    let userId = window.localStorage.getItem ("editUserId");
-
+    let userId = window.localStorage.getItem ("updateUserId");
     this.formUpdate=this.fb.group({
 
       full_name:['',[Validators.required,Validators.minLength(2)]],
       email:['',[Validators.required,Validators.email]],
       phone:['',[Validators.required,Validators.pattern('[0-9]{10}')]],
       address:['',[Validators.required]],
-    })
 
+    })
+    this.userService.getById(1).subscribe((res:User)=> {
+      this.user = res;
+      console.log(this.user);
+      this.formUpdate?.setValue({
+        full_name: res.full_name,
+        email: res.email,
+        phone: res.phone,
+        address: res.address,
+      })
+    })
 
 
   }
@@ -54,4 +65,5 @@ export class UpdateUserComponent implements OnInit {
   get address(){
     return this.formUpdate?.get('address')
   }
+
 }

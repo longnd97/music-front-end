@@ -21,24 +21,50 @@
     <div class="row py-2">
       <div class="col-md-12"> <label>Họ và Tên</label>
         <input type="text" formControlName="full_name" class="bg-light form-control"
-               placeholder=" Vui lòng điền tên đầy đủ !"> <!--[ngClass]="(full_name?.invalid && full_name?.dirty) ? 'is-invalid' : '' "--> </div>
+                placeholder=" Vui lòng điền tên đầy đủ !"  > <!--[ngClass]="(full_name?.invalid && full_name?.dirty) ? 'is-invalid' : '' "--> </div>
     </div>
     <div *ngIf="full_name?.invalid && full_name?.dirty">
       <p class="text-danger" *ngIf="full_name?.errors?.required"  >
         Trường này không được để trống !
       </p>
+      <p class="text-danger" *ngIf="full_name?.errors?.minlength"  >
+        Trường này chứa ít nhất 2 ký tự!
+      </p>
     </div>
     <div class="row py-2">
       <div class="col-md-12"> <label>Email</label> <input formControlName="email" type="text" class="bg-light form-control" placeholder="Vui lòng điền email !"> </div>
     </div>
-
+    <div *ngIf="email?.invalid && email?.dirty">
+      <p class="text-danger" *ngIf="email?.errors?.required"  >
+        Trường này không được để trống !
+      </p>
+      <p class="text-danger" *ngIf="email?.errors?.email"  >
+        Email không hợp lệ !
+      </p>
+    </div>
     <div class="row py-2">
       <div class="col-md-12"> <label>Số điện thoại</label> <input formControlName="phone" type="text" class="bg-light form-control" placeholder="Vui lòng điền số điện thoại !"> </div>
+    </div>
+
+    <div *ngIf="phone?.invalid && phone?.dirty">
+      <p class="text-danger" *ngIf="phone?.errors?.required"  >
+        Trường này không được để trống !
+      </p>
+      <p class="text-danger" *ngIf="phone?.errors?.pattern"  >
+        Trường này gồm 10 chữ số!
+      </p>
     </div>
 
     <div class="row py-2">
       <div class="col-md-12"> <label>Địa chỉ</label> <input formControlName="address" type="text" class="bg-light form-control" placeholder="Vui lòng điền địa chỉ !"> </div>
     </div>
+
+    <div *ngIf="address?.invalid && address?.dirty">
+      <p class="text-danger" *ngIf="address?.errors?.required"  >
+        Trường này không được để trống !
+      </p>
+    </div>
+
 
 
     <div class="py-3 pb-4 border-bottom">
@@ -54,4 +80,19 @@
     </div>
   </div>
 
+ <!-- <div class="mt-lg-4 container">
+    <br>
+    <div class="form-group" >
+        <label for="avatar">
+            chon anh dai dien
+        </label>
+      <div class="input-group">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="avatar" formControlName="avatar" #fileUploader (change)="showPreview($event)" >
+          <lable class="custom-file-label" for="avatar">choose file</lable>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img [src]="imgSrc" height="125" width="100" alt="anh dai dien" (click)="fileUploader.click()" />-->
 </section>

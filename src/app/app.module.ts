@@ -13,7 +13,13 @@ import { MasterComponent } from './layouts/master/master.component';
 import { UserComponent } from './pages/user/user.component';
 import { UpdateUserComponent } from './pages/update-user/update-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AngularFireRemoteConfig} from "@angular/fire/compat/remote-config";
+import {AngularFireModule} from "@angular/fire/compat";
+import {environment} from "../environments/environment";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
 
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +36,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
-
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

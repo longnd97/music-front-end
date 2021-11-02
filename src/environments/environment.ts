@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://127.0.0.1:8000/api/'
+  api_url: 'http://127.0.0.1:8000/api/',
+  firebaseConfig: {
+    apiKey: "AIzaSyCwlByVfoStEk7543erzMCzaYjFXb3j7a8",
+    authDomain: "fir-upload-5d324.firebaseapp.com",
+    projectId: "fir-upload-5d324",
+    storageBucket: "fir-upload-5d324.appspot.com",
+    messagingSenderId: "53794644334",
+    appId: "1:53794644334:web:a45b51d9eb1af44c10a17f",
+    measurementId: "G-H1G58MJGJS"
+  }
 };
 
 /*

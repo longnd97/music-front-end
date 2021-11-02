@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
@@ -7,17 +7,15 @@ import {environment} from "../../environments/environment";
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   login(data: any): Observable<any> {
-      return this.http.post(environment.api_url + 'login', data);
+    return this.http.post(environment.api_url + 'login', data);
   }
 
-  getUser(token:any):Observable<any>{
-    return this.http.post(environment.api_url + 'user', token);
+  register(data: any): Observable<any> {
+    return this.http.post(environment.api_url + 'register', data);
   }
-
-  // getInforUser(user_name:any):Observable<any>{
-  //   return this.http.post(environment.api_url + '', user_name);
-  // }
 }

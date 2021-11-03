@@ -46,6 +46,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -67,5 +68,4 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

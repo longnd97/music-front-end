@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
         if (res.status === 'success') {
           localStorage.setItem('token', res.token);
           localStorage.setItem('user', JSON.stringify(res.user.user_name));
+          localStorage.setItem('id', JSON.stringify(res.user.id));
           this.router.navigate(['']).then(() => {
             window.location.reload();
           });

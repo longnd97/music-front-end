@@ -15,9 +15,8 @@ export class CreateSongComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.form.user_id = localStorage.getItem('id');
   }
-
   ngSubmit() {
     this.song = new Song(
       this.form.name,
@@ -25,11 +24,16 @@ export class CreateSongComponent implements OnInit {
       this.form.file_mp3,
       this.form.image,
       this.form.author,
-      this.form.album
+      this.form.album,
+      this.form.user_id
     )
     this.songService.createSong(this.song).subscribe(res => {
-      alert(res.message);
-      window.location.reload();
+      if (res.status === 'success') {
+        alert(res.message);
+        window.location.reload();
+      } else {
+        alert(res.message);
+      }
     })
   }
 

@@ -1,0 +1,7 @@
+<div>
+  <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+    <img [src]="downloadURL" style="width: 300px; height: auto">
+  </div>
+  <input *ngIf="!downloadURL" type="file" (change)="onUpload($event)"><br>
+  <mat-spinner *ngIf="checkUploadAvatar"></mat-spinner>
+</div>

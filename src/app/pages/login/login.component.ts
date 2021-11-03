@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -19,12 +19,14 @@ export class LoginComponent implements OnInit {
   token = '';
   request: any;
   errLogin = '';
-  
+  deleteToken: any;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -39,17 +41,16 @@ export class LoginComponent implements OnInit {
       (res) => {
         if (res.status === 'success') {
           localStorage.setItem('token', res.token);
-          localStorage.setItem('user', JSON.stringify(res.user));
-          alert(res.message);
-          this.router.navigate(['']).then(()=>{
+          localStorage.setItem('user', JSON.stringify(res.user.user_name));
+          this.router.navigate(['']).then(() => {
             window.location.reload();
           });
-        } else if(res.status === 'error') {
+        } else if (res.status === 'error') {
           this.errLogin = res.message;
         }
       },
-      
     )
   }
+
 
 }

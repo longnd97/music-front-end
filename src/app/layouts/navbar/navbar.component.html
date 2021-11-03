@@ -65,7 +65,8 @@
                 <!-- Login/Register -->
                 <div class="login-register-btn mr-50">
                   <a *ngIf="!check" routerLink="login">Đăng nhập/</a>
-                  <a *ngIf="check" routerLink="">{{name}}</a>
+                  <a *ngIf="check" routerLink="">{{name}}/</a>
+                  <a *ngIf="check" (click)="logout()">Đăng xuất</a>
                   <a *ngIf="!check" routerLink="register">Đăng ký</a>
                 </div>
                 <!-- Cart Button -->

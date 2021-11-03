@@ -12,8 +12,6 @@ export class NavbarComponent implements OnInit {
   name: any;
   data: any;
   deleteToken: any;
-  token: any;
-  checkLogin = false;
 
   // name = localStorage.getItem('user');
 
@@ -23,10 +21,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token');
-    if (this.token) {
-      this.checkLogin = true;
-    }
     if (localStorage.getItem('user')) {
       this.check = true;
       this.data = localStorage.getItem('user');

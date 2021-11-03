@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
 
@@ -10,7 +10,20 @@ export class SongService {
 
   constructor(private http: HttpClient) {
   }
+
   createSong(data: any): Observable<any> {
-    return this.http.post(environment.api_url + 'create-song', data);
+    let t = localStorage.getItem('token');
+    let headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " + t
+    })
+    const httpOptions = {
+      headers: headers_object
+    };
+    return this.http.post(environment.api_url + 'users/create-song', data, httpOptions);
+  }
+
+  getCategories(): Observable<any> {
+    return this.http.get(environment.api_url + 'categories');
   }
 }

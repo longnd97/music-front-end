@@ -29,8 +29,9 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
-    if(confirm("Bạn có thực sự muốn đăng xuất")){
-      this.authService.logout().subscribe((res) => {
+    if (confirm("Bạn có thực sự muốn đăng xuất")) {
+      this.authService.logout().subscribe(res => {
+        console.log(res)
         if (res.status === 'success') {
           localStorage.clear();
           this.router.navigate(['login']).then(() => {

@@ -22,4 +22,8 @@ export class SongService {
     };
     return this.http.post(environment.api_url + 'users/create-song', data, httpOptions);
   }
+
+  getCategories(): Observable<any> {
+    return this.http.get(environment.api_url + 'categories');
+  }
 }

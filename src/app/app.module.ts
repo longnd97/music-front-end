@@ -16,17 +16,13 @@ import {RegisterComponent} from "./pages/register/register.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {environment} from "../environments/environment";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {MatButtonModule} from "@angular/material/button";
 import { UploadAvatarComponent } from './upload/upload-avatar/upload-avatar.component';
 import { UploadFileComponent } from './upload/upload-file/upload-file.component';
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import { CreateSongComponent } from './songManage/create-song/create-song.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatIconModule} from "@angular/material/icon";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+
 
 @NgModule({
   declarations: [
@@ -53,17 +49,9 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     MatProgressSpinnerModule,
-    MatButtonModule,
     FormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatCardModule,
-    FormsModule,
-    MatIconModule,
-    MatInputModule,
-    MatButtonModule,
     MatProgressBarModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

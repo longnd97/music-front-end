@@ -30,7 +30,7 @@
                 <li><a href="#">Pages</a>
                 <li><a href="event.html">Events</a></li>
                 <li><a href="blog.html">News</a></li>
-                <li><a href="/songs/create">Thêm bài hát</a></li>
+                <li><a *ngIf="checkLogin" href="/songs/create">Thêm bài hát</a></li>
               </ul>
 
               <!-- Login/Register & Cart Button -->

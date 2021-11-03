@@ -1,7 +1,7 @@
-<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg)">
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/bg-2.jpg)">
   <div class="bradcumbContent">
     <p>Âm nhạc không chỉ để nghe</p>
-    <h1>Âm nhạc còn là music</h1>
+    <h1>Âm nhạc còn là MUSIC</h1>
   </div>
 </section>
 <section class="login-area section-padding-100">
@@ -9,51 +9,70 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
         <div class="login-content">
+          <h2>Tạo mới bài hát</h2>
           <div class="create-song-form">
-            <div class="container">
-              <div class="row">
-                <mat-card style="width: 100%">
-                  <h2>Tạo mới bài hát</h2>
-                  <form class="create-song" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
-                    <mat-form-field style="width: 100%" appearance="outline">
-                      <mat-label>Tên bài hát:</mat-label>
-                      <input name="name" matInput [(ngModel)]="form.name" #name="ngModel" required>
-                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
-                      <mat-error *ngIf="name.hasError('required')">Tên bài hát không được để trống</mat-error>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 100%" appearance="outline">
-                      <mat-label>Mô tả bài hát:</mat-label>
-                      <textarea name="description" matInput [(ngModel)]="form.description"></textarea>
-                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 100%" appearance="outline">
-                      <mat-label>Tác giả:</mat-label>
-                      <input name="author" matInput [(ngModel)]="form.author">
-                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
-                    </mat-form-field>
-                    <br>
-                    <mat-form-field style="width: 100%" appearance="outline">
-                      <mat-label>Album:</mat-label>
-                      <input name="album" matInput [(ngModel)]="form.album">
-                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
-                    </mat-form-field>
-                    <br>
-                    <div style="text-align: left">Thêm ảnh:
-                      <app-upload-avatar (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
-                    </div>
-                    <div style="text-align: left">Thêm file mp3:
-                      <app-upload-file (giveURLtoCreate)="uploadFile($event)"></app-upload-file>
-                    </div>
-                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">
-                      Create Song
-                      <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
-                    </button>
-                  </form>
-                </mat-card>
+            <form *ngIf="createSongForm" [formGroup]="createSongForm" (ngSubmit)="submit()" novalidate>
+              <div class="form-group">
+                <label>Tên bài hát:</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="name" class="form-control"
+                       placeholder="Vui lòng nhập tên bài hát">
               </div>
-            </div>
+              <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="name?.errors?.required">
+                  Tên bài hát không được để trống
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Mô tả bài hát:</label><strong class="text-danger">*</strong>
+                <textarea type="text" formControlName="description" class="form-control"></textarea>
+              </div>
+              <div *ngIf="description?.invalid && (description?.dirty || description?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="description?.errors?.required">
+                  Vui lòng mô tả bài hát
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Tác giả:</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="author" class="form-control"
+                       placeholder="Vui lòng nhập tên tác giả">
+              </div>
+              <div *ngIf="author?.invalid && (author?.dirty || author?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="author?.errors?.required">
+                  Vui lòng nhập tác giả bài hát
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Album:</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="album" class="form-control"
+                       placeholder="Vui lòng nhập album">
+              </div>
+              <div *ngIf="album?.invalid && (album?.dirty || album?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="album?.errors?.required">
+                  Vui lòng nhập album
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Chọn dòng nhạc:</label><strong class="text-danger">*</strong>
+                <select class="form-control" (change)="selectedCategory($event)">
+                  <option>Chọn dòng nhạc</option>
+                  <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+                </select>
+              </div>
+              <div style="text-align: left">Thêm ảnh:
+                <app-upload-avatar (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
+              </div>
+              <div style="text-align: left">Thêm file mp3:
+                <app-upload-file (giveURLtoCreate)="uploadFile($event)"></app-upload-file>
+              </div>
+              <div style="text-align: left">Những thông tin có đánh dấu <strong class="text-danger">(*)</strong> là bắt
+                buộc nhập
+              </div>
+              <button type="submit" class="btn oneMusic-btn mt-30">Tạo bài hát</button>
+            </form>
           </div>
         </div>
       </div>

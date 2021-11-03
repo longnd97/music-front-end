@@ -6,8 +6,12 @@ import {UserComponent} from "./pages/user/user.component";
 import {UpdateUserComponent} from "./pages/update-user/update-user.component";
 import {RegisterComponent} from "./pages/register/register.component";
 import {CreateSongComponent} from "./songManage/create-song/create-song.component";
+import {canActivate} from "@angular/fire/auth-guard";
+import {AuthGuard} from "./guards/auth.guard";
 
 
+// @ts-ignore
+// @ts-ignore
 const routes: Routes = [
   {
     path: 'login',
@@ -22,16 +26,17 @@ const routes: Routes = [
     component:UserComponent
   },
   {
-    path:'users/:id/update',
-    component:UpdateUserComponent
+    path: 'users/:id/update',
+    component: UpdateUserComponent
   },
   {
     path: 'register',
     component: RegisterComponent
   },
   {
-    path:'songs/create',
-    component: CreateSongComponent
+    path: 'songs/create',
+    component: CreateSongComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

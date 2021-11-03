@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Song} from "../../interfaces/song";
 import {SongService} from "../../services/song.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-create-song',
@@ -8,38 +9,84 @@ import {SongService} from "../../services/song.service";
   styleUrls: ['./create-song.component.css']
 })
 export class CreateSongComponent implements OnInit {
-  form: any = {};
-  song?: Song;
+  createSongForm?: FormGroup;
+  categories?: any;
+  categoryMusicSelected = '';
+  image = '';
+  file_mp3 = '';
+  selected = '';
 
-  constructor(private songService: SongService) {
+  constructor(private songService: SongService,
+              private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-
+    this.getCategories();
+    this.createSongForm = this.fb.group({
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      file_mp3: [''],
+      image: [''],
+      author: ['', [Validators.required]],
+      album: ['', [Validators.required]],
+      category_id: ['', [Validators.required]],
+      user_id: localStorage.getItem('id')
+    });
   }
 
-  ngSubmit() {
-    this.song = new Song(
-      this.form.name,
-      this.form.description,
-      this.form.file_mp3,
-      this.form.image,
-      this.form.author,
-      this.form.album
-    )
-    this.songService.createSong(this.song).subscribe(res => {
-      alert(res.message);
-      window.location.reload();
+  submit() {
+    // @ts-ignore
+    this.createSongForm.controls.image.setValue(this.image);
+    // @ts-ignore
+    this.createSongForm.controls.file_mp3.setValue(this.file_mp3);
+    // @ts-ignore
+    this.createSongForm.controls.category_id.setValue(this.selected);
+    let data = this.createSongForm?.value;
+    this.songService.createSong(data).subscribe(res => {
+      if (res.status === 'success') {
+        alert(res.message);
+        window.location.reload();
+      } else {
+        alert("Thêm bài hát thất bại");
+      }
+    });
+  }
+
+  uploadAvatar(event: string) {
+    this.image = event;
+  }
+
+  uploadFile(event: string) {
+    this.file_mp3 = event;
+  }
+
+  selectedCategory(event: any) {
+    this.selected = event.target.value;
+  }
+
+  getCategories() {
+    this.songService.getCategories().subscribe(res => {
+      this.categories = res;
     })
   }
 
-  uploadAvatar($event: string) {
-    this.form.image = $event;
-    console.log('image --> ', this.form.image)
+  get name() {
+    // @ts-ignore
+    return this.createSongForm.get('name');
   }
 
-  uploadFile($event: string) {
-    this.form.file_mp3 = $event
-    console.log('file_mp3 -->', this.form.file_mp3)
+  get description() {
+    // @ts-ignore
+    return this.createSongForm.get('description');
+  }
+
+  get author() {
+    // @ts-ignore
+    return this.createSongForm.get('author');
+  }
+
+  get album() {
+    // @ts-ignore
+    return this.createSongForm.get('album');
   }
 }

@@ -1,0 +1,62 @@
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg)">
+  <div class="bradcumbContent">
+    <p>Âm nhạc không chỉ để nghe</p>
+    <h1>Âm nhạc còn là music</h1>
+  </div>
+</section>
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <div class="create-song-form">
+            <div class="container">
+              <div class="row">
+                <mat-card style="width: 100%">
+                  <h2>Tạo mới bài hát</h2>
+                  <form class="create-song" #f="ngForm" (ngSubmit)="f.form.valid && ngSubmit()" novalidate>
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Tên bài hát:</mat-label>
+                      <input name="name" matInput [(ngModel)]="form.name" #name="ngModel" required>
+                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
+                      <mat-error *ngIf="name.hasError('required')">Tên bài hát không được để trống</mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Mô tả bài hát:</mat-label>
+                      <textarea name="description" matInput [(ngModel)]="form.description"></textarea>
+                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Tác giả:</mat-label>
+                      <input name="author" matInput [(ngModel)]="form.author">
+                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field style="width: 100%" appearance="outline">
+                      <mat-label>Album:</mat-label>
+                      <input name="album" matInput [(ngModel)]="form.album">
+                      <mat-icon color="accent" matSuffix>library_music</mat-icon>
+                    </mat-form-field>
+                    <br>
+                    <div style="text-align: left">Thêm ảnh:
+                      <app-upload-avatar (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
+                    </div>
+                    <div style="text-align: left">Thêm file mp3:
+                      <app-upload-file (giveURLtoCreate)="uploadFile($event)"></app-upload-file>
+                    </div>
+                    <button mat-stroked-button color="accent" class="mat-button-toggle-group btn-outline-primary">
+                      Create Song
+                      <mat-icon color="accent" matSuffix>add_circle_outline</mat-icon>
+                    </button>
+                  </form>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -12,4 +12,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onChangeAvatar($event: string) {
+    console.log('avatar ===> ', $event)
+  }
 }

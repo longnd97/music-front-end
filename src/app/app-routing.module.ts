@@ -4,6 +4,8 @@ import {LoginComponent} from "./pages/login/login.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {UserComponent} from "./pages/user/user.component";
 import {UpdateUserComponent} from "./pages/update-user/update-user.component";
+import {RegisterComponent} from "./pages/register/register.component";
+import {CreateSongComponent} from "./songManage/create-song/create-song.component";
 
 
 const routes: Routes = [
@@ -23,6 +25,14 @@ const routes: Routes = [
     path:'users/:id/update',
     component:UpdateUserComponent
   },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path:'songs/create',
+    component: CreateSongComponent
+  }
 ];
 
 @NgModule({

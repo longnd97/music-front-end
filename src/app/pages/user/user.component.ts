@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../../interfaces/user";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {identity} from "rxjs";
 
 @Component({
   selector: 'app-user',
@@ -10,17 +11,22 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class UserComponent implements OnInit {
   user?:User;
+  check = false;
+  name:any;
+  data:any;
+  id?:number;
   constructor(private userService:UserService,
               private route:Router,
               private router:ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
-    let id = parseInt(<string>this.router.snapshot.paramMap.get('id'))
-    this.userService.getById(id).subscribe(res=>{
-      console.log(res)
-      this.user=res
-    })
+    if(window.localStorage.getItem('user')) {
+      this.check = true;
+      this.data = localStorage.getItem('user');
+      this.user = JSON.parse(this.data);
+      console.log(this.user)
+    }
   }
 
 

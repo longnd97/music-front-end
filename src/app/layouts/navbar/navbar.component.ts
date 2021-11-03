@@ -9,7 +9,7 @@ export class NavbarComponent implements OnInit {
   check = false;
   name:any;
   data:any;
-  // name = localStorage.getItem('user');
+
   constructor() { }
 
   ngOnInit(): void {
@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
       this.check = true;
       this.data = localStorage.getItem('user');
       this.name = JSON.parse(this.data);
-    
+
   }}
 
 }

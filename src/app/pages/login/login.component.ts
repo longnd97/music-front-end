@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('user_name', JSON.stringify(res.user.user_name));
           localStorage.setItem('id', JSON.stringify(res.user.id));
           localStorage.setItem('user', JSON.stringify(res.user));
-
+          alert("Đăng nhập thành công");
           this.router.navigate(['']).then(() => {
             window.location.reload();
           });

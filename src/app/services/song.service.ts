@@ -20,7 +20,7 @@ export class SongService {
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.post(environment.api_url + 'users/create-song', data, httpOptions);
+    return this.http.post(environment.api_url + 'songs/create-song', data, httpOptions);
   }
 
   getCategories(): Observable<any> {

@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup,Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../interfaces/user";
-import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {first} from "rxjs/operators";
 
 

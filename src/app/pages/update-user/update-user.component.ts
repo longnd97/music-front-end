@@ -37,18 +37,18 @@ export class UpdateUserComponent implements OnInit {
       address: ['', [Validators.required]],
       avatar: [''],
     })
-   /* let id = this.user?.id;
-    if (id != null) {*/
-      this.userService.getInfoUserLogin().subscribe((res: User) => {
-        this.user = res;
-        console.log(this.user);
-        this.formUpdate?.setValue({
-          full_name: res.full_name,
-          phone: res.phone,
-          address: res.address,
-          avatar: res.avatar,
-        })
+    /* let id = this.user?.id;
+     if (id != null) {*/
+    this.userService.getInfoUserLogin().subscribe((res: User) => {
+      this.user = res;
+      console.log(this.user);
+      this.formUpdate?.setValue({
+        full_name: res.full_name,
+        phone: res.phone,
+        address: res.address,
+        avatar: res.avatar,
       })
+    })
 
   }
 

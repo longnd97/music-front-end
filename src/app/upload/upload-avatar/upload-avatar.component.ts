@@ -1,5 +1,5 @@
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {AngularFireStorage, AngularFireStorageReference} from "@angular/fire/compat/storage";
+import {AngularFireStorage, AngularFireStorageReference} from "@angular/fire/storage";
 
 
 

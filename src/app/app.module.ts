@@ -22,7 +22,6 @@ import {AngularFireModule} from "@angular/fire";
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {CreateSongComponent} from './songManage/create-song/create-song.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {NgxAudioPlayerModule} from "ngx-audio-player";
 import { MyListSongComponent } from './songManage/my-list-song/my-list-song.component';
 
 
@@ -39,7 +38,9 @@ import { MyListSongComponent } from './songManage/my-list-song/my-list-song.comp
     UpdateUserComponent,
     UploadAvatarComponent,
     UploadFileComponent,
-    CreateSongComponent
+    CreateSongComponent,
+    MyListSongComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -53,7 +54,7 @@ import { MyListSongComponent } from './songManage/my-list-song/my-list-song.comp
     MatProgressSpinnerModule,
     FormsModule,
     MatProgressBarModule,
-    NgxAudioPlayerModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

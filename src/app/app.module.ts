@@ -20,7 +20,7 @@ import {UploadAvatarComponent} from './upload/upload-avatar/upload-avatar.compon
 import {UploadFileComponent} from './upload/upload-file/upload-file.component';
 import {CreateSongComponent} from './songManage/create-song/create-song.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-// import {NgxAudioPlayerModule} from "ngx-audio-player";
+import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {AngularFireModule} from "@angular/fire";
@@ -54,7 +54,7 @@ import {AngularFireModule} from "@angular/fire";
     MatProgressSpinnerModule,
     FormsModule,
     MatProgressBarModule,
-    // NgxAudioPlayerModule
+    NgxAudioPlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

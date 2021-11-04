@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Song} from "../../interfaces/song";
+  import {Song} from "../../interfaces/song";
 import {SongService} from "../../services/song.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -41,6 +41,7 @@ export class CreateSongComponent implements OnInit {
     // @ts-ignore
     this.createSongForm.controls.category_id.setValue(this.selected);
     let data = this.createSongForm?.value;
+    console.log(data)
     this.songService.createSong(data).subscribe(res => {
       if (res.status === 'success') {
         alert(res.message);

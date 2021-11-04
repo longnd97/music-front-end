@@ -14,7 +14,7 @@
 <div style="border: 2px solid black" class="container rounded bg-white mt-5 mb-5">
   <div class="row">
     <div class="col-md-3 border-right gradient-custom" *ngIf="data">
-      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+      <div style="margin-bottom: 50px" class="d-flex flex-column align-items-center text-center p-3 py-5">
         <img class="rounded-circle mt-5" width="150px"
              src="{{data.avatar}}" alt="{{data.avatar}}">
         <span class="font-weight-bold">{{data.user_name}}</span>
@@ -24,7 +24,9 @@
 
     <div class="col-md-5 border-right">
       <div class="p-3 py-5">
-          <div class="row mt-4" *ngIf="data">
+        <div style="margin: 0!important;" class="d-flex justify-content-between align-items-center experience"><span><h4>Thông tin chi tiết</h4></span></div><br>
+          <div style="margin-top: 0!important;" class="row mt-4" *ngIf="data">
+
             <div class="col-md-12"><label class="lab"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
               <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
               <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>

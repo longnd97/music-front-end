@@ -13,15 +13,17 @@ import {MasterComponent} from './layouts/master/master.component';
 import {UserComponent} from './pages/user/user.component';
 import {UpdateUserComponent} from './pages/update-user/update-user.component';
 import {RegisterComponent} from "./pages/register/register.component";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from "../environments/environment";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import { UploadAvatarComponent } from './upload/upload-avatar/upload-avatar.component';
-import { UploadFileComponent } from './upload/upload-file/upload-file.component';
+import {UploadAvatarComponent} from './upload/upload-avatar/upload-avatar.component';
+import {UploadFileComponent} from './upload/upload-file/upload-file.component';
 import {AngularFireModule} from "@angular/fire";
 import {AngularFireStorageModule} from "@angular/fire/storage";
-import { CreateSongComponent } from './songManage/create-song/create-song.component';
+import {CreateSongComponent} from './songManage/create-song/create-song.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {NgxAudioPlayerModule} from "ngx-audio-player";
+import { MyListSongComponent } from './songManage/my-list-song/my-list-song.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     UpdateUserComponent,
     UploadAvatarComponent,
     UploadFileComponent,
-    CreateSongComponent
+    CreateSongComponent,
+    MyListSongComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +54,10 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatProgressSpinnerModule,
     FormsModule,
     MatProgressBarModule,
-
+    NgxAudioPlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

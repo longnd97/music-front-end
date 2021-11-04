@@ -6,29 +6,32 @@ import {User} from "../../interfaces/user";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {first} from "rxjs/operators";
 
+
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
   styleUrls: ['./update-user.component.css']
 })
 export class UpdateUserComponent implements OnInit {
+
+  formUpdate?:FormGroup;
   check = false;
   name:any;
   data:any;
   user?:User;
-  formUpdate?:FormGroup;
   id?:number;
-  ref:any;
-  task:any;
   uploadProgress:any;
-  downloadURL:any;
+  avatar='';
+
+
+  private token?: string | null;
+
 
 
   constructor(private fb:FormBuilder,
               private activatedRoute:ActivatedRoute,
               private userService:UserService,
               private router: Router,
-              private storage: AngularFireStorage,
 
   ) {}
 
@@ -37,13 +40,15 @@ export class UpdateUserComponent implements OnInit {
       this.check = true;
       this.data = localStorage.getItem('user');
       this.user = JSON.parse(this.data);
-      console.log(this.user)
+      this.token= localStorage.getItem('token');
+
     }
 
     this.formUpdate=this.fb.group({
       full_name:['',[Validators.required,Validators.minLength(2)]],
       phone:['',[Validators.required,Validators.pattern('[0-9]{10}')]],
       address:['',[Validators.required]],
+      avatar:[''],
     })
     let id=this.user?.id;
     if (id != null) {
@@ -54,6 +59,7 @@ export class UpdateUserComponent implements OnInit {
           full_name: res.full_name,
           phone: res.phone,
           address: res.address,
+          avatar: res.avatar,
         })
       })
     }
@@ -62,13 +68,24 @@ export class UpdateUserComponent implements OnInit {
   submitForm() {
     let id = this.user?.id;
     if (id != null) {
+      // @ts-ignore
+      this.formUpdate.controls.avatar.setValue(this.avatar);
       let data = this.formUpdate?.value;
       console.log(data);
-      this.userService.updateById(id, data).pipe(first()).subscribe((res:User)=>{
-        this.user=res;
-      })
-      /* this.route.navigate(['admin/users'])*/
+      this.userService.updateById(id, data).pipe(first()).subscribe(
+        res=>{
+
+       this.router.navigate(['users']);
+          alert('User update successfully !')
+        },
+        error => {
+          alert(error);
+        }    );
     }
+  }
+
+  uploadAvatar(event: string) {
+    this.avatar = event;
   }
 
   get full_name(){

@@ -22,8 +22,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path:'users/profile',
-    component:UserComponent
+    path:'users',
+    component:UserComponent,
+    children: [
+
+    ]
   },
   {
     path: 'users/:id/update',

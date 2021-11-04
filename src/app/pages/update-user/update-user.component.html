@@ -11,14 +11,12 @@
 
 <div class="wrapper bg-white mt-sm-5">
   <h4 class="pb-4 border-bottom">Account settings</h4>
-  <form *ngIf="formUpdate" [formGroup]="formUpdate">
-  <div class="d-flex align-items-start py-3 border-bottom"> <img src="https://images.pexels.com/photos/1037995/pexels-photo-1037995.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="img" alt="">
+  <form *ngIf="formUpdate" [formGroup]="formUpdate" (ngSubmit)="submitForm()">
+<!--  <div class="d-flex align-items-start py-3 border-bottom"> <img src="" class="img" alt="">
     <div class="pl-sm-4 pl-2" id="img-section"> <b>Avatar</b>
       <p>Accepted file type .png. Less than 1MB</p>
-
-
     </div>
-  </div>
+  </div>-->
   <div class="py-2">
     <div class="row py-2">
       <div class="col-md-12"> <label>Họ và Tên</label>
@@ -58,7 +56,8 @@
     </div>
 
     <div class="row py-2">
-      <div class="col-md-12"> <label>Địa chỉ</label> <input formControlName="address" type="text" class="bg-light form-control" placeholder="Vui lòng điền địa chỉ !"> </div>
+      <div class="col-md-12"> <label>Địa chỉ</label>
+        <input formControlName="address" type="text" class="bg-light form-control" placeholder="Vui lòng điền địa chỉ !"> </div>
     </div>
 
     <div *ngIf="address?.invalid && address?.dirty">
@@ -67,9 +66,16 @@
       </p>
     </div>
 
+    <div style="text-align: left">Thêm ảnh:
+
+      <app-upload-avatar formControlName="avatar" (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
+
+    </div>
+
     <div class="py-3 pb-4 border-bottom">
-      <button [disabled]="formUpdate.invalid" (click)="submitForm()" class="btn btn-primary mr-3"> Save Changes</button>
-      <button class="btn border button">Cancel</button> </div>
+      <button [disabled]="formUpdate.invalid"  class="btn btn-primary mr-3"> Save Changes</button>
+
+      <a [routerLink]=[] class="btn border button">Cancel</a> </div>
   </div>
   </form>
     <div class="d-sm-flex align-items-center pt-3" id="deactivate">

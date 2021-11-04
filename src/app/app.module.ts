@@ -18,10 +18,11 @@ import {environment} from "../environments/environment";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { UploadAvatarComponent } from './upload/upload-avatar/upload-avatar.component';
 import { UploadFileComponent } from './upload/upload-file/upload-file.component';
-import {AngularFireModule} from "@angular/fire";
-import {AngularFireStorageModule} from "@angular/fire/storage";
+
 import { CreateSongComponent } from './songManage/create-song/create-song.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 
 
 @NgModule({

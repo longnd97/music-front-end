@@ -18,11 +18,12 @@ import {environment} from "../environments/environment";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {UploadAvatarComponent} from './upload/upload-avatar/upload-avatar.component';
 import {UploadFileComponent} from './upload/upload-file/upload-file.component';
-import {AngularFireModule} from "@angular/fire";
-import {AngularFireStorageModule} from "@angular/fire/storage";
 import {CreateSongComponent} from './songManage/create-song/create-song.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { MyListSongComponent } from './songManage/my-list-song/my-list-song.component';
+// import {NgxAudioPlayerModule} from "ngx-audio-player";
+import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
+import {AngularFireStorageModule} from "@angular/fire/storage";
+import {AngularFireModule} from "@angular/fire";
 
 
 @NgModule({
@@ -39,8 +40,7 @@ import { MyListSongComponent } from './songManage/my-list-song/my-list-song.comp
     UploadAvatarComponent,
     UploadFileComponent,
     CreateSongComponent,
-    MyListSongComponent,
-
+    MyListSongComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +54,7 @@ import { MyListSongComponent } from './songManage/my-list-song/my-list-song.comp
     MatProgressSpinnerModule,
     FormsModule,
     MatProgressBarModule,
-
+    // NgxAudioPlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

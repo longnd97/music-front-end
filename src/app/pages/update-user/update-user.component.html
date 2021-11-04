@@ -1,7 +1,7 @@
 <section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg)">
   <div class="bradcumbContent">
 
-    <h2 >Cập nhật thông tin</h2>
+    <h2>Cập nhật thông tin</h2>
   </div>
 </section>
 <!-- ##### Breadcumb Area End ##### -->
@@ -9,65 +9,66 @@
 <!-- ##### Login Area Start ##### -->
 <section class="login-area section-padding-100">
 
-<div class="wrapper bg-white mt-sm-5">
-  <h4 class="pb-4 border-bottom"></h4>
-  <form *ngIf="formUpdate" [formGroup]="formUpdate" (ngSubmit)="submitForm()">
-  <div class="py-2">
-    <div class="row py-2">
-      <div class="col-md-12"> <label>Họ và Tên</label>
-        <input type="text" formControlName="full_name" class="bg-light form-control"
-                placeholder=" Vui lòng điền tên đầy đủ !"  > <!--[ngClass]="(full_name?.invalid && full_name?.dirty) ? 'is-invalid' : '' "--> </div>
-    </div>
-    <div *ngIf="full_name?.invalid && full_name?.dirty">
-      <p class="text-danger" *ngIf="full_name?.errors?.required"  >
-        Trường này không được để trống !
-      </p>
-      <p class="text-danger" *ngIf="full_name?.errors?.minlength"  >
-        Trường này chứa ít nhất 2 ký tự!
-      </p>
-    </div>
+  <div class="wrapper bg-white mt-sm-5">
+    <h4 class="pb-4 border-bottom"></h4>
+    <form *ngIf="formUpdate" [formGroup]="formUpdate" (ngSubmit)="submitForm()">
+      <div class="py-2">
+        <div class="row py-2">
+          <div class="col-md-12"><label>Họ và Tên</label>
+            <input type="text" formControlName="full_name" class="bg-light form-control"
+                   placeholder=" Vui lòng điền tên đầy đủ !">
+            <!--[ngClass]="(full_name?.invalid && full_name?.dirty) ? 'is-invalid' : '' "--> </div>
+        </div>
+        <div *ngIf="full_name?.invalid && full_name?.dirty">
+          <p class="text-danger" *ngIf="full_name?.errors?.required">
+            Trường này không được để trống !
+          </p>
+          <p class="text-danger" *ngIf="full_name?.errors?.minlength">
+            Trường này chứa ít nhất 2 ký tự!
+          </p>
+        </div>
 
-    <div class="row py-2">
-      <div class="col-md-12"> <label>Số điện thoại</label> <input formControlName="phone" type="text" class="bg-light form-control" placeholder="Vui lòng điền số điện thoại !"> </div>
-    </div>
+        <div class="row py-2">
+          <div class="col-md-12"><label>Số điện thoại</label> <input formControlName="phone" type="text"
+                                                                     class="bg-light form-control"
+                                                                     placeholder="Vui lòng điền số điện thoại !"></div>
+        </div>
 
-    <div *ngIf="phone?.invalid && phone?.dirty">
-      <p class="text-danger" *ngIf="phone?.errors?.required"  >
-        Trường này không được để trống !
-      </p>
-      <p class="text-danger" *ngIf="phone?.errors?.pattern"  >
-        Trường này gồm 10 chữ số!
-      </p>
-    </div>
+        <div *ngIf="phone?.invalid && phone?.dirty">
+          <p class="text-danger" *ngIf="phone?.errors?.required">
+            Trường này không được để trống !
+          </p>
+          <p class="text-danger" *ngIf="phone?.errors?.pattern">
+            Trường này gồm 10 chữ số!
+          </p>
+        </div>
 
-    <div class="row py-2">
-      <div class="col-md-12"> <label>Địa chỉ</label>
-        <input formControlName="address" type="text" class="bg-light form-control" placeholder="Vui lòng điền địa chỉ !"> </div>
-    </div>
+        <div class="row py-2">
+          <div class="col-md-12"><label>Địa chỉ</label>
+            <input formControlName="address" type="text" class="bg-light form-control"
+                   placeholder="Vui lòng điền địa chỉ !"></div>
+        </div>
 
-    <div *ngIf="address?.invalid && address?.dirty">
-      <p class="text-danger" *ngIf="address?.errors?.required"  >
-        Trường này không được để trống !
-      </p>
-    </div>
+        <div *ngIf="address?.invalid && address?.dirty">
+          <p class="text-danger" *ngIf="address?.errors?.required">
+            Trường này không được để trống !
+          </p>
+        </div>
 
-    <div style="text-align: left">Thêm ảnh:
-
-      <app-upload-avatar formControlName="avatar" (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
-
-    </div>
-
-    <div class="py-3 pb-4 border-bottom">
-      <button [disabled]="formUpdate.invalid"  class="btn btn-primary mr-3"> Save Changes</button>
-      <a type="button" style="width: 100px" class="btn border button mr-3" routerLink="../../">Back</a>
-    </div>
-  </div>
-  </form>
-   <!-- <div class="d-sm-flex align-items-center pt-3" id="deactivate">
-      <div> <b>Deactivate your account</b>
-        <p>Details about your company account and password</p>
+        <div style="text-align: left">Thêm ảnh:
+          <app-upload-avatar formControlName="avatar" (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
+        </div>
+        <div class="py-3 pb-4 border-bottom">
+          <button [disabled]="formUpdate.invalid" class="btn btn-primary mr-3"> Save Changes</button>
+          <a type="button" style="width: 100px" class="btn border button mr-3" routerLink="../../">Back</a>
+        </div>
       </div>
-      <div class="ml-auto"> <button class="btn danger">Deactivate</button> </div>
-    </div>-->
+    </form>
+    <!-- <div class="d-sm-flex align-items-center pt-3" id="deactivate">
+       <div> <b>Deactivate your account</b>
+         <p>Details about your company account and password</p>
+       </div>
+       <div class="ml-auto"> <button class="btn danger">Deactivate</button> </div>
+     </div>-->
   </div>
 </section>

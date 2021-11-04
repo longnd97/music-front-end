@@ -62,9 +62,11 @@
                   <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
                 </select>
               </div>
+
               <div style="text-align: left">Thêm ảnh:
                 <app-upload-avatar (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
               </div>
+
               <div style="text-align: left">Thêm file mp3:
                 <app-upload-file (giveURLtoCreate)="uploadFile($event)"></app-upload-file>
               </div>

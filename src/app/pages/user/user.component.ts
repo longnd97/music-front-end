@@ -12,21 +12,21 @@ import {identity} from "rxjs";
 export class UserComponent implements OnInit {
   user?:User;
   check = false;
-  name:any;
   data:any;
-  id?:number;
   constructor(private userService:UserService,
               private route:Router,
               private router:ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
-    if(window.localStorage.getItem('user')) {
-      this.check = true;
-      this.data = localStorage.getItem('user');
-      this.user = JSON.parse(this.data);
-      console.log(this.user)
-    }
+    this.getUserLogin();
+  }
+
+  getUserLogin(){
+    this.userService.getInfoUserLogin().subscribe(res => {
+      console.log(res)
+      this.data = res
+    })
   }
 
 

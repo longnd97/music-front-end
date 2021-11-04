@@ -33,4 +33,8 @@ export class UserService {
       Authorization: `Bearer ${token}`
     });
   }
+
+  getInfoUserLogin(): Observable<any>{
+    return this.httpClient.post( this.baseUrl+ 'users/me',null,{headers: this.getAuthHeaders()})
+  }
 }

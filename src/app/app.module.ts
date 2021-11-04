@@ -39,8 +39,7 @@ import { MyListSongComponent } from './songManage/my-list-song/my-list-song.comp
     UpdateUserComponent,
     UploadAvatarComponent,
     UploadFileComponent,
-    CreateSongComponent,
-    MyListSongComponent
+    CreateSongComponent
   ],
   imports: [
     BrowserModule,
@@ -59,5 +58,4 @@ import { MyListSongComponent } from './songManage/my-list-song/my-list-song.comp
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

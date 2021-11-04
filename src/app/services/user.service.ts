@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {User} from "../interfaces/user";
 import {Observable} from "rxjs";
@@ -9,15 +9,28 @@ import {Observable} from "rxjs";
 })
 export class UserService {
   user?:User;
-  constructor(private httpClient:HttpClient,
-  ) { }
+  baseUrl=environment.api_url
+  private header: any;
+  token: any;
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+  });
 
-  findById(id:number){
-    return this.httpClient.get(environment.api_url + 'users/' + id + '/profile')
+  constructor(private httpClient:HttpClient,) { }
+
+  getById(id:number){
+    return this.httpClient.get( this.baseUrl+ 'users/' + id,{headers: this.getAuthHeaders()})
   }
 
   updateById(id:number, user:User): Observable<User>{
-    return this.httpClient.put<User>(environment.api_url + 'users/' + id +'/update',user)
+    return this.httpClient.put<User>(this.baseUrl + 'users/' + id +'/update',user,{headers: this.getAuthHeaders()})
   }
 
+  getAuthHeaders() {
+    const token = localStorage.getItem('token')
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+  }
 }

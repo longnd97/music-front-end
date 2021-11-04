@@ -11,7 +11,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class CreateSongComponent implements OnInit {
   createSongForm?: FormGroup;
   categories?: any;
-  categoryMusicSelected = '';
   image = '';
   file_mp3 = '';
   selected = '';

@@ -8,6 +8,7 @@ import {RegisterComponent} from "./pages/register/register.component";
 import {CreateSongComponent} from "./songManage/create-song/create-song.component";
 import {canActivate} from "@angular/fire/auth-guard";
 import {AuthGuard} from "./guards/auth.guard";
+import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 
 
 // @ts-ignore
@@ -39,6 +40,11 @@ const routes: Routes = [
   {
     path: 'songs/create',
     component: CreateSongComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-songs',
+    component: MyListSongComponent,
     canActivate: [AuthGuard]
   }
 ];

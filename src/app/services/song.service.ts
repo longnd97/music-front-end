@@ -36,11 +36,11 @@ export class SongService {
   }
 
   detailSong(id:any): Observable<any>{
-    return this.http.get(environment.api_url +id+ '/play');
+    return this.http.get(environment.api_url +'songs/'+id+ '/play');
   }
 
   getAll():Observable<any>{
-    return this.http.get(environment.api_url + '/list');
+    return this.http.get(environment.api_url + 'songs/list');
   }
 
 }

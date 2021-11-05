@@ -1,0 +1,23 @@
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/breadcumb3.jpg)">
+  <div class="bradcumbContent">
+    <p>Âm nhạc không chỉ để nghe</p>
+    <h1>Âm nhạc còn là MUSIC</h1>
+  </div>
+</section>
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <h2>Danh sách bài hát của tôi</h2>
+          <ngx-audio-player *ngIf="listSong" [playlist]="listSong" [displayTitle]="msaapDisplayTitle" [autoPlay]="true"
+                            muted="muted" [displayPlaylist]="msaapDisplayPlayList"
+                            [pageSizeOptions]="msaapPageSizeOptions"
+                            [displayArtist]="msaapDisplayArtist" [displayDuration]="msaapDisplayDuration"
+                            [expanded]="true" (trackEnded)="onEnded($event)" [displayVolumeControls]="msaapDisplayVolumeControls"
+                            [displayRepeatControls]="msaapDisplayRepeatControls"></ngx-audio-player>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -28,15 +28,11 @@ export class SongService {
   }
 
   getMySongs(id: any): Observable<any> {
-    let t = localStorage.getItem('token');
-    let headers_object = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer " + t
-    })
-    const httpOptions = {
-      headers: headers_object
-    };
-    return this.http.get(environment.api_url + 'my-songs/' + id, httpOptions);
+    return this.http.get(environment.api_url + 'my-songs/' + id);
+  }
+
+  getNewSongs(): Observable<any> {
+    return this.http.get(environment.api_url + 'new-songs/');
   }
 
   detailSong(id:any): Observable<any>{

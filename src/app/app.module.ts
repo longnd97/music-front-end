@@ -25,6 +25,7 @@ import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.compon
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {AngularFireModule} from "@angular/fire";
 import { DetailSongComponent } from './songManage/detail-song/detail-song.component';
+import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { DetailSongComponent } from './songManage/detail-song/detail-song.compon
     UploadFileComponent,
     CreateSongComponent,
     MyListSongComponent,
-    DetailSongComponent
+    DetailSongComponent,
+    NewListSongComponent
   ],
   imports: [
     BrowserModule,

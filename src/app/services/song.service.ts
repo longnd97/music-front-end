@@ -39,4 +39,8 @@ export class SongService {
     return this.http.get(environment.api_url +id+ '/play');
   }
 
+  getAll():Observable<any>{
+    return this.http.get(environment.api_url + '/list');
+  }
+
 }

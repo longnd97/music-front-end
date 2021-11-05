@@ -38,4 +38,8 @@ export class UserService {
   getInfoUserLogin(): Observable<any> {
     return this.httpClient.post(this.baseUrl + 'users/me', null, {headers: this.getAuthHeaders()})
   }
+
+  changePassword(data: any): Observable<any> {
+    return this.httpClient.put(this.baseUrl + 'users/change-password', data, {headers: this.getAuthHeaders()})
+  }
 }

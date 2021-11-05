@@ -25,6 +25,9 @@ import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.compon
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {AngularFireModule} from "@angular/fire";
 import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
+import { ListAllSongComponent } from './songManage/list-all-song/list-all-song.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { NewListSongComponent } from './songManage/new-list-song/new-list-song.c
     UploadFileComponent,
     CreateSongComponent,
     MyListSongComponent,
-    NewListSongComponent
+    NewListSongComponent,
+    ListAllSongComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

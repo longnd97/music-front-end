@@ -1,0 +1,28 @@
+<div class="row">
+<div class="col-12 col-sm-6 col-md-4 col-lg-2" *ngFor="let song of songs">
+  <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
+
+
+<div >
+<div class="album-thumb" >
+  <img src="{{song.image}}" alt="">
+  <!-- Album Price -->
+  <div class="album-price">
+    <p>$0.90</p>
+  </div>
+  <!-- Play Icon -->
+  <div class="play-icon">
+    <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+  </div>
+</div>
+<div class="album-info">
+  <a routerLink="songs/{{song.id}}/detail">
+    <h5>{{song.name}}</h5>
+  </a>
+  <p>{{song.author}}</p>
+</div>
+</div>
+
+  </div>
+</div>
+</div>

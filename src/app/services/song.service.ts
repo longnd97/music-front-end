@@ -23,7 +23,7 @@ export class SongService {
     return this.http.post(environment.api_url + 'songs/create-song', data, httpOptions);
   }
 
-  detailSong(id: number): Observable<any> {
+  detailSongId(id: number): Observable<any> {
     return this.http.get(environment.api_url + 'songs/' + id + 'detailSong', getToken());
   }
 

@@ -27,8 +27,6 @@ export class NavbarComponent implements OnInit {
 
   logout() {
     if (confirm("Bạn có thực sự muốn đăng xuất")) {
-
-
       this.authService.logout().subscribe(res => {
         console.log(res)
         if (res.status === 'success') {

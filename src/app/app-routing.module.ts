@@ -26,9 +26,9 @@ const routes: Routes = [
   {
     path:'users',
     component:UserComponent,
-    children: [
-
-    ]
+    // children: [
+    //
+    // ]
   },
   {
     path: 'users/:id/update',
@@ -51,8 +51,11 @@ const routes: Routes = [
   {
     path:'songs/:id/detail',
     component: DetailSongComponent,
+  },
+  {
+    // path:'songs/:id/detailSong',
+    // component:
   }
-
 
 ];
 

@@ -23,13 +23,13 @@ export class SongService {
     return this.http.post(environment.api_url + 'songs/create-song', data, httpOptions);
   }
 
-  detailSongId(id: number): Observable<any> {
-    return this.http.get(environment.api_url + 'songs/' + id + 'detailSong', getToken());
-  }
-
-  updateSong(id: number, data: any): Observable<any> {
-    return this.http.put(environment.api_url + 'songs/' + id + 'update-song', data, getToken());
-  }
+  // detailSongId(id: number): Observable<any> {
+  //   return this.http.get(environment.api_url + 'songs/' + id + 'getSongById', getToken());
+  // }
+  //
+  // updateSong(id: number, data: any): Observable<any> {
+  //   return this.http.put(environment.api_url + 'songs/' + id + 'update-song', data, getToken());
+  // }
 
   getCategories(): Observable<any> {
     return this.http.get(environment.api_url + 'categories');

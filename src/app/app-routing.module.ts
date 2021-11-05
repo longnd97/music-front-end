@@ -10,6 +10,7 @@ import {canActivate} from "@angular/fire/auth-guard";
 import {AuthGuard} from "./guards/auth.guard";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
+import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 
 
 // @ts-ignore
@@ -26,9 +27,6 @@ const routes: Routes = [
   {
     path:'users',
     component:UserComponent,
-    // children: [
-    //
-    // ]
   },
   {
     path: 'users/:id/update',
@@ -53,10 +51,10 @@ const routes: Routes = [
     component: DetailSongComponent,
   },
   {
-    // path:'songs/:id/detailSong',
-    // component:
+    path: 'change-password',
+    component: ChangePasswordComponent,
+    canActivate: [AuthGuard]
   }
-
 ];
 
 @NgModule({

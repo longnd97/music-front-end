@@ -28,6 +28,9 @@ import { DetailSongComponent } from './songManage/detail-song/detail-song.compon
 import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
 import { AllSongComponent } from './songManage/all-song/all-song.component';
 import { UpdateSongComponent } from './songManage/update-song/update-song.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+
+
 
 @NgModule({
   declarations: [
@@ -47,8 +50,8 @@ import { UpdateSongComponent } from './songManage/update-song/update-song.compon
     NewListSongComponent,
     UpdateSongComponent,
     DetailSongComponent,
-    NewListSongComponent,
     AllSongComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

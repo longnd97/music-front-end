@@ -27,6 +27,8 @@ import {AngularFireModule} from "@angular/fire";
 import { DetailSongComponent } from './songManage/detail-song/detail-song.component';
 import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
 import { AllSongComponent } from './songManage/all-song/all-song.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { AllSongComponent } from './songManage/all-song/all-song.component';
     DetailSongComponent,
     NewListSongComponent,
     AllSongComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

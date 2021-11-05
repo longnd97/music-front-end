@@ -10,6 +10,7 @@ import {canActivate} from "@angular/fire/auth-guard";
 import {AuthGuard} from "./guards/auth.guard";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
+import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 
 
 // @ts-ignore
@@ -51,9 +52,12 @@ const routes: Routes = [
   {
     path:'songs/:id/detail',
     component: DetailSongComponent,
+  },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+    canActivate: [AuthGuard]
   }
-
-
 ];
 
 @NgModule({

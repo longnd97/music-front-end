@@ -35,11 +35,12 @@ export class SongService {
     return this.http.get(environment.api_url + 'new-songs/');
   }
 
-  getSong(id: any): Observable<any> {
-    return this.http.get(environment.api_url + 'song/' + id);
+  detailSong(id:any): Observable<any>{
+    return this.http.get(environment.api_url +'songs/'+id+ '/play');
   }
 
-  getSongs(): Observable<any> {
-    return this.http.get(environment.api_url + 'songs');
+  getAll():Observable<any>{
+    return this.http.get(environment.api_url + 'songs/list');
   }
+
 }

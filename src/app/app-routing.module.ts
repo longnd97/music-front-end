@@ -9,6 +9,7 @@ import {CreateSongComponent} from "./songManage/create-song/create-song.componen
 import {canActivate} from "@angular/fire/auth-guard";
 import {AuthGuard} from "./guards/auth.guard";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
+import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 
 
@@ -24,9 +25,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'users',
-    component: UserComponent,
-    children: []
+    path:'users',
+    component:UserComponent,
+    children: [
+
+    ]
   },
   {
     path: 'users/:id/update',
@@ -45,6 +48,10 @@ const routes: Routes = [
     path: 'my-songs',
     component: MyListSongComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path:'songs/:id/detail',
+    component: DetailSongComponent,
   },
   {
     path: 'change-password',

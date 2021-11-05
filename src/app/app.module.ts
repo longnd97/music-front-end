@@ -24,6 +24,7 @@ import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {AngularFireModule} from "@angular/fire";
+import { DetailSongComponent } from './songManage/detail-song/detail-song.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {AngularFireModule} from "@angular/fire";
     UploadAvatarComponent,
     UploadFileComponent,
     CreateSongComponent,
-    MyListSongComponent
+    MyListSongComponent,
+    DetailSongComponent
   ],
   imports: [
     BrowserModule,

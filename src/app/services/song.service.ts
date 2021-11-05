@@ -23,6 +23,14 @@ export class SongService {
     return this.http.post(environment.api_url + 'songs/create-song', data, httpOptions);
   }
 
+  detailSong(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/' + id + 'detailSong', getToken());
+  }
+
+  updateSong(id: number, data: any): Observable<any> {
+    return this.http.put(environment.api_url + 'songs/' + id + 'update-song', data, getToken());
+  }
+
   getCategories(): Observable<any> {
     return this.http.get(environment.api_url + 'categories');
   }
@@ -35,3 +43,15 @@ export class SongService {
     return this.http.get(environment.api_url + 'new-songs/');
   }
 }
+
+  function getToken(){
+    let t = localStorage.getItem('token');
+    let headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " + t
+    })
+    const httpOptions = {
+      headers: headers_object
+    };
+    return httpOptions;
+  }

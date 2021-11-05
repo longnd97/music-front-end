@@ -11,9 +11,6 @@ export class NavbarComponent implements OnInit {
   check = false;
   name: any;
   data: any;
-  deleteToken: any;
-
-  // name = localStorage.getItem('user');
 
   constructor(private authService: AuthService,
               private router: Router
@@ -36,7 +33,7 @@ export class NavbarComponent implements OnInit {
           localStorage.clear();
           this.router.navigate(['login']).then(() => {
             window.location.reload();
-          });
+          })
         } else if (res.status === 'error') {
           alert(res.message);
         }

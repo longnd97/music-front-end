@@ -11,8 +11,10 @@ import {AuthGuard} from "./guards/auth.guard";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
+import {UpdateSongComponent} from "./songManage/update-song/update-song.component";
 
 
+// @ts-ignore
 // @ts-ignore
 // @ts-ignore
 const routes: Routes = [
@@ -42,7 +44,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'my-songs',
+    path: 'songs/my-songs',
     component: MyListSongComponent,
     canActivate: [AuthGuard]
   },
@@ -53,6 +55,11 @@ const routes: Routes = [
   {
     path: 'change-password',
     component: ChangePasswordComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'songs/my-songs/:id/update',
+    component: UpdateSongComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -29,6 +29,8 @@ import { NewListSongComponent } from './songManage/new-list-song/new-list-song.c
 import { AllSongComponent } from './songManage/all-song/all-song.component';
 import { UpdateSongComponent } from './songManage/update-song/update-song.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -65,7 +67,9 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     MatProgressSpinnerModule,
     FormsModule,
     MatProgressBarModule,
-    NgxAudioPlayerModule
+    NgxAudioPlayerModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

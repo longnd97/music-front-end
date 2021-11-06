@@ -28,6 +28,8 @@ import { DetailSongComponent } from './songManage/detail-song/detail-song.compon
 import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
 import { AllSongComponent } from './songManage/all-song/all-song.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { SearchComponent } from './pages/search/search.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 
 
@@ -50,6 +52,8 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
     NewListSongComponent,
     AllSongComponent,
     ChangePasswordComponent,
+    SearchComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,

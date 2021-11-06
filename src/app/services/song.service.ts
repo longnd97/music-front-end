@@ -43,4 +43,9 @@ export class SongService {
     return this.http.get(environment.api_url + 'songs/list');
   }
 
+  search(key:string):Observable<any>{
+    // @ts-ignore
+    return this.http.get(environment.api_url + 'songs/search/'+ key)
+  }
+
 }

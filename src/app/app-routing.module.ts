@@ -11,6 +11,8 @@ import {AuthGuard} from "./guards/auth.guard";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
+import {SearchComponent} from "./pages/search/search.component";
+import {SearchPageComponent} from "./pages/search-page/search-page.component";
 
 
 // @ts-ignore
@@ -29,9 +31,8 @@ const routes: Routes = [
     },]
   },
   {
-    path: 'users',
-    component: UserComponent,
-    children: []
+    path:'users',
+    component:UserComponent,
   },
   {
     path: 'users/:id/update',
@@ -55,7 +56,11 @@ const routes: Routes = [
     path: 'change-password',
     component: ChangePasswordComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'songs/search/:key',
+    component: SearchPageComponent
+  },
 ];
 
 @NgModule({

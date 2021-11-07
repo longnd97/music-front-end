@@ -1,0 +1,10 @@
+
+  <div class="search"> <i class="fa fa-search"></i>
+    <input  [(ngModel)]="value" type="text" class="form-control" placeholder="tìm kiếm">
+    <div style="border-radius: 5px">
+   <!-- <ul  class="list-group-item list-group-item-action" *ngFor="let song of songs">
+      <a (click)="back()" routerLink="songs/{{song.id}}/detail">{{song.name}}</a>
+    </ul>-->
+    </div>
+    <button routerLink="songs/search" (click)="search()" class="btn btn-primary">Search</button>
+  </div>

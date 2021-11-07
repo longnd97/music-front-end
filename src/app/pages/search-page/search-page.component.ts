@@ -3,6 +3,7 @@ import {SongService} from "../../services/song.service";
 import {DataService} from "../../services/data.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Track} from "ngx-audio-player";
 
 @Component({
   selector: 'app-search-page',
@@ -15,7 +16,7 @@ export class SearchPageComponent implements OnInit {
   otherMessage?: string;
   id?: any;
   value?: number;
-  @Output() click = new EventEmitter<string>()
+  songId?: number;
 
 
   constructor(private songService: SongService,
@@ -27,7 +28,6 @@ export class SearchPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSongs()
-    this.getSong()
   }
 
   getKey() {
@@ -51,21 +51,9 @@ export class SearchPageComponent implements OnInit {
     this.songs = [];
   }
 
-  getSong() {
+  playSong(event: any, songId: number) {
+    event.preventDefault();
+    this.songId = songId;
 
-/*    // @ts-ignore
-    this.click.emit(this.value);
-    console.log(this.value)
-    // @ts-ignore
-    if (this.value) {
-      // @ts-ignore
-      this.dataService.changeMessage(this.value);
-      // @ts-ignore
-      this.otherMessage = this.dataService.currentMessage.subscribe(message => {
-        this.otherMessage = message;*/
-
-        this.songService.detailSong(this.id).subscribe(res => {
-          this.router.navigate(['songs/:id/detail'])
-        })
-      }
-    }
+  }
+}

@@ -35,8 +35,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import {AuthGuard} from "./guards/auth.guard";
 import {MatMenuModule} from "@angular/material/menu";
-
-
+import { PlaySongSearchComponent } from './songManage/play-song-search/play-song-search.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +60,7 @@ import {MatMenuModule} from "@angular/material/menu";
     ChangePasswordComponent,
     SearchComponent,
     SearchPageComponent,
-
+    PlaySongSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,21 +8,22 @@ import {environment} from "../../environments/environment";
 })
 export class PlaylistService {
 
-  constructor(private http: HttpClient) { }
+  constructor( private http:HttpClient) { }
 
-  createPlaylist(data:any): Observable<any>{
-    return this.http.post(environment.api_url + 'playlists/create-playlist', data, this.getToken())
-  }
-
-  getToken(){
-    let t = localStorage.getItem('token');
-    let headers_object = new HttpHeaders({
+  getAuthHeaders() {
+    const token = localStorage.getItem('token')
+    return new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': "Bearer " + t
-    })
-    const httpOptions = {
-      headers: headers_object
-    };
-    return httpOptions;
+      Authorization: `Bearer ${token}`
+    });
   }
+
+  createPlaylist(data:any):Observable<any>{
+    return this.http.post(environment.api_url + 'playlists/create-playlist',data,{headers:this.getAuthHeaders()})
+  }
+
+  getCategories(): Observable<any> {
+    return this.http.get(environment.api_url + 'categories');
+  }
+
 }

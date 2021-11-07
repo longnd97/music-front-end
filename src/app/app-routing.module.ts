@@ -14,6 +14,7 @@ import {ChangePasswordComponent} from "./pages/change-password/change-password.c
 import {UpdateSongComponent} from "./songManage/update-song/update-song.component";
 import {SearchComponent} from "./pages/search/search.component";
 import {SearchPageComponent} from "./pages/search-page/search-page.component";
+import {CreatePlaylistComponent} from "./playlistManage/create-playlist/create-playlist.component";
 
 // @ts-ignore
 // @ts-ignore
@@ -80,6 +81,11 @@ const routes: Routes = [
     path: 'songs/:id/play',
     component: DetailSongComponent,
   },
+  {
+    path: 'playlist/create',
+    component: CreatePlaylistComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

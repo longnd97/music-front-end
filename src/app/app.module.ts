@@ -34,6 +34,9 @@ import {MatButtonModule} from "@angular/material/button";
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import {AuthGuard} from "./guards/auth.guard";
+import {MatMenuModule} from "@angular/material/menu";
+
+
 
 @NgModule({
   declarations: [
@@ -75,7 +78,7 @@ import {AuthGuard} from "./guards/auth.guard";
     NgxAudioPlayerModule,
     MatIconModule,
     MatButtonModule,
-
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

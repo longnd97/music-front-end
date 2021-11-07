@@ -37,4 +37,5 @@ export class DetailSongComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     this.loadSongList(changes.songId.currentValue);
   }
+
 }

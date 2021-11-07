@@ -33,7 +33,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
-
+import {AuthGuard} from "./guards/auth.guard";
 
 @NgModule({
   declarations: [
@@ -78,6 +78,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
+
 export class AppModule { }

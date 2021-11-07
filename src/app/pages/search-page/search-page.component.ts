@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SongService} from "../../services/song.service";
 import {DataService} from "../../services/data.service";
 import {Subscription} from "rxjs";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-search-page',
@@ -12,14 +13,21 @@ export class SearchPageComponent implements OnInit {
   songs?: any
   key?: string
   otherMessage?: string;
+  id?: any;
+  value?: number;
+  @Output() click = new EventEmitter<string>()
+
 
   constructor(private songService: SongService,
               private dataService: DataService,
+              private routerActivate: ActivatedRoute,
+              private router: Router
   ) {
   }
 
   ngOnInit(): void {
     this.getSongs()
+    this.getSong()
   }
 
   getKey() {
@@ -27,19 +35,37 @@ export class SearchPageComponent implements OnInit {
   }
 
   getSongs() {
-      // @ts-ignore
-      this.otherMessage = this.dataService.currentMessage.subscribe(message => {
-        this.otherMessage = message;
-        this.songService.search(this.otherMessage).subscribe(res => {
-          this.songs = res
-          console.log(this.songs)
-        })
+    // @ts-ignore
+    this.otherMessage = this.dataService.currentMessage.subscribe(message => {
+      this.otherMessage = message;
+      this.songService.search(this.otherMessage).subscribe(res => {
+        this.songs = res
+        console.log(this.songs)
       })
-    }
+    })
+  }
+
 
   back() {
     this.otherMessage = '';
     this.songs = [];
   }
 
-  }
+  getSong() {
+
+/*    // @ts-ignore
+    this.click.emit(this.value);
+    console.log(this.value)
+    // @ts-ignore
+    if (this.value) {
+      // @ts-ignore
+      this.dataService.changeMessage(this.value);
+      // @ts-ignore
+      this.otherMessage = this.dataService.currentMessage.subscribe(message => {
+        this.otherMessage = message;*/
+
+        this.songService.detailSong(this.id).subscribe(res => {
+          this.router.navigate(['songs/:id/detail'])
+        })
+      }
+    }

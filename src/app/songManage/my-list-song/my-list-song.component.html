@@ -22,7 +22,8 @@
                 <img src="{{song.image}}" style="width: 50px" alt="">
               </td>
               <td class="song-name">
-                <img src="https://img.icons8.com/material-outlined/24/000000/musical-notes.png"/>{{song.name}}
+                <img src="https://img.icons8.com/material-outlined/24/000000/musical-notes.png"/>
+                <a (click)="playSong($event,song.id)" href="">{{song.name}}</a>
               </td>
               <td>
                 <button mat-icon-button (click)="updateSong(song.id)" color="primary"><mat-icon>border_color</mat-icon></button>
@@ -37,5 +38,6 @@
       </div>
     </div>
   </div>
+  <app-detail-song *ngIf="songId" [songId]="songId"></app-detail-song>
 </section>
 

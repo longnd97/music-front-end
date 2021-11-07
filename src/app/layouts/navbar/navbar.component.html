@@ -26,7 +26,6 @@
             <div class="classynav">
               <ul>
                 <li><a routerLink="/">Trang chủ</a></li>
-
                 <li><a routerLink="songs/my-songs">Bài hát của tôi</a></li>
                 <li><a routerLink="/songs/create">Thêm bài hát</a></li>
               </ul>
@@ -36,10 +35,11 @@
                 <div class="login-register-btn mr-50">
                   <a *ngIf="!check" routerLink="login">Đăng nhập/</a>
                   <button style="color: white" *ngIf="check" mat-button [matMenuTriggerFor]="beforeMenu" mat-icon-button>
-                    <mat-icon>account_circle</mat-icon>
+                    <img style="border-radius: 50%; width: 80%" src="{{imageUser.avatar}}" alt="">
                   </button>
                   <mat-menu #beforeMenu="matMenu" xPosition="before">
-                    <button mat-menu-item><a href="/change-password">Đổi mật khẩu</a></button>
+                    <button mat-menu-item><a *ngIf="check" routerLink="users">Tài khoản</a></button>
+                    <button mat-menu-item><a *ngIf="check" href="/change-password">Đổi mật khẩu</a></button>
                     <button mat-menu-item><a *ngIf="check" (click)="logout()">Đăng xuất</a></button>
                   </mat-menu>
                   <a>{{name}}</a>

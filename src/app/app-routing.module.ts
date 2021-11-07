@@ -24,7 +24,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [{
+      path: 'songs/:id/detail',
+      component: DetailSongComponent,
+    },]
   },
   {
     path:'users',
@@ -47,10 +51,6 @@ const routes: Routes = [
     path: 'my-songs',
     component: MyListSongComponent,
     canActivate: [AuthGuard]
-  },
-  {
-    path:'songs/:id/detail',
-    component: DetailSongComponent,
   },
   {
     path: 'change-password',

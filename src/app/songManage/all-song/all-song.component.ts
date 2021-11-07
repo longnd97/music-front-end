@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SongService} from "../../services/song.service";
 
 @Component({
@@ -7,17 +7,25 @@ import {SongService} from "../../services/song.service";
   styleUrls: ['./all-song.component.css']
 })
 export class AllSongComponent implements OnInit {
-  songs?:any
-  constructor(private serviceSong:SongService) { }
+  songs?: any;
+  songId?: number;
+
+  constructor(private serviceSong: SongService) {
+  }
 
   ngOnInit(): void {
     this.getAll()
   }
 
-  getAll(){
-    this.serviceSong.getAll().subscribe(res=>{
+  getAll() {
+    this.serviceSong.getAll().subscribe(res => {
       console.log(res)
-      this.songs=res
+      this.songs = res
     })
+  }
+
+  playSong(event: any, songId: number) {
+    event.preventDefault();
+    this.songId = songId;
   }
 }

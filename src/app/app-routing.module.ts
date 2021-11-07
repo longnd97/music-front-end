@@ -59,13 +59,21 @@ const routes: Routes = [
   },
   {
     path: 'songs/search/:key',
-    component: SearchPageComponent
+    component: SearchPageComponent,
+    children: [{
+      path: 'songs/:id/detail',
+      component: DetailSongComponent,
+    },]
   },
   {
     path: 'songs/my-songs/:id/update',
     component: UpdateSongComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'songs/:id/play',
+    component: DetailSongComponent,
+  },
 ];
 
 @NgModule({

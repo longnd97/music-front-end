@@ -34,6 +34,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import {AuthGuard} from "./guards/auth.guard";
+import { PlaySongSearchComponent } from './songManage/play-song-search/play-song-search.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import {AuthGuard} from "./guards/auth.guard";
     ChangePasswordComponent,
     SearchComponent,
     SearchPageComponent,
+    PlaySongSearchComponent,
   ],
   imports: [
     BrowserModule,

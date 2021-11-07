@@ -52,6 +52,18 @@ export class MyListSongComponent implements OnInit {
     this.router.navigate(['songs/my-songs/' + songId + '/update']).then();
   }
 
+  deleteSong(songId:number){
+    if (confirm(" Bạn có chắc chắn muốn xoá bài hát ? ")){
+      this.songService.deleteSong(songId).subscribe(res=>{
+        this.song=res;
+        console.log(this.song)
+        this.getMySongs();
+
+      })
+    }
+
+  }
+
   onEnded($event: string) {
     console.log($event);
   }

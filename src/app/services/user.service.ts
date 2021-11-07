@@ -10,17 +10,12 @@ import {Observable} from "rxjs";
 export class UserService {
   user?: User;
   baseUrl = environment.api_url
-  private header: any;
   token: any;
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
   });
 
   constructor(private httpClient: HttpClient,) {
-  }
-
-  getById(id: number) {
-    return this.httpClient.get(this.baseUrl + 'users/' + id, {headers: this.getAuthHeaders()})
   }
 
   updateById(id: number, user: User): Observable<User> {

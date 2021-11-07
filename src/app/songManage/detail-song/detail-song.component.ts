@@ -28,12 +28,6 @@ export class DetailSongComponent implements OnInit {
     this.getMySongs();
   }
 
-  detailSong(){
-    let id = parseInt(<string>this.router.snapshot.paramMap.get('id'));
-    this.songService.detailSong(id).subscribe(res=>{
-      console.log(res)
-    })
-  }
 
   getMySongs() {
     let id = parseInt(<string>this.router.snapshot.paramMap.get('id'));

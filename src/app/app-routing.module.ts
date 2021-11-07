@@ -11,12 +11,9 @@ import {AuthGuard} from "./guards/auth.guard";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
-import {SearchComponent} from "./pages/search/search.component";
 import {SearchPageComponent} from "./pages/search-page/search-page.component";
 
 
-// @ts-ignore
-// @ts-ignore
 const routes: Routes = [
   {
     path: 'login',
@@ -59,7 +56,7 @@ const routes: Routes = [
   },
   {
     path: 'songs/search/:key',
-    component: SearchPageComponent
+    component: SearchPageComponent,
   },
 ];
 

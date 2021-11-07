@@ -30,7 +30,7 @@ import { AllSongComponent } from './songManage/all-song/all-song.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
-
+import {AuthGuard} from "./guards/auth.guard";
 
 
 @NgModule({
@@ -70,6 +70,7 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
     NgxAudioPlayerModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
+
 export class AppModule { }

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {
   FormBuilder,
-  FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
@@ -19,7 +18,6 @@ export class LoginComponent implements OnInit {
   token = '';
   request: any;
   errLogin = '';
-  deleteToken: any;
 
   constructor(
     private fb: FormBuilder,
@@ -29,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scroll(0,250);
+    window.scroll(0, 250);
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -45,7 +43,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('user_name', JSON.stringify(res.user.user_name));
           localStorage.setItem('id', JSON.stringify(res.user.id));
           localStorage.setItem('user', JSON.stringify(res.user));
-
+          alert("Đăng nhập thành công");
           this.router.navigate(['']).then(() => {
             window.location.reload();
           });
@@ -55,6 +53,4 @@ export class LoginComponent implements OnInit {
       },
     )
   }
-
-
 }

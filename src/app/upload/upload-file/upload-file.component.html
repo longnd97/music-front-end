@@ -4,6 +4,6 @@
       <source [src]="downloadURL" style="width: 350px; height: auto">
     </audio>
   </div>
-  <input *ngIf="!downloadURL" type="file" (change)="onUpload($event)"><br>
+  <input *ngIf="!downloadURL" type="file" accept="audio/*" (change)="onUpload($event)"><br>
   <mat-progress-bar mode="indeterminate" *ngIf="checkUploadFile"></mat-progress-bar>
 </div>

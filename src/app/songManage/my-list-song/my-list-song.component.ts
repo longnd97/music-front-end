@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SongService} from "../../services/song.service";
 import {Track} from "ngx-audio-player";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-my-list-song',
@@ -19,13 +21,17 @@ export class MyListSongComponent implements OnInit {
   song: any;
   listSong: Track[] = [];
   user_id: any;
+  id: any;
 
-  constructor(private songService: SongService) {
+  constructor(private songService: SongService,
+              private router: Router
+  ) {
   }
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('id');
     this.getMySongs();
+    this.listSong;
   }
 
   getMySongs() {
@@ -40,6 +46,10 @@ export class MyListSongComponent implements OnInit {
         this.listSong.push(this.song);
       }
     })
+  }
+
+  updateSong(songId: number) {
+    this.router.navigate(['songs/my-songs/' + songId + '/update']).then();
   }
 
   onEnded($event: string) {

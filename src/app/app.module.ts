@@ -27,7 +27,10 @@ import {AngularFireModule} from "@angular/fire";
 import { DetailSongComponent } from './songManage/detail-song/detail-song.component';
 import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
 import { AllSongComponent } from './songManage/all-song/all-song.component';
+import { UpdateSongComponent } from './songManage/update-song/update-song.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import {AuthGuard} from "./guards/auth.guard";
@@ -50,6 +53,8 @@ import {AuthGuard} from "./guards/auth.guard";
     MyListSongComponent,
     DetailSongComponent,
     NewListSongComponent,
+    UpdateSongComponent,
+    DetailSongComponent,
     AllSongComponent,
     ChangePasswordComponent,
     SearchComponent,
@@ -67,7 +72,9 @@ import {AuthGuard} from "./guards/auth.guard";
     MatProgressSpinnerModule,
     FormsModule,
     MatProgressBarModule,
-    NgxAudioPlayerModule
+    NgxAudioPlayerModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent],

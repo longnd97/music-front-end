@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SongService} from "../../services/song.service";
 
 @Component({
@@ -14,13 +14,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-
   }
 
   onChangeAvatar($event: string) {
     console.log('avatar ===> ', $event)
   }
-
 
 
 }

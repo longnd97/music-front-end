@@ -35,6 +35,8 @@ import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import {AuthGuard} from "./guards/auth.guard";
 import { PlaySongSearchComponent } from './songManage/play-song-search/play-song-search.component';
+import { CreatePlaylistComponent } from './playlistManage/create-playlist/create-playlist.component';
+import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist.component';
 
 
 @NgModule({
@@ -61,6 +63,8 @@ import { PlaySongSearchComponent } from './songManage/play-song-search/play-song
     SearchComponent,
     SearchPageComponent,
     PlaySongSearchComponent,
+    CreatePlaylistComponent,
+    AllPlaylistComponent,
   ],
   imports: [
     BrowserModule,

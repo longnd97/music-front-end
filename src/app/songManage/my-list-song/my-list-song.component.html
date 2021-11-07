@@ -28,7 +28,7 @@
                 <button mat-icon-button (click)="updateSong(song.id)" color="primary"><mat-icon>border_color</mat-icon></button>
               </td>
               <td>
-                <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+                <button mat-icon-button (click)="deleteSong(song.id)" color="warn"><mat-icon>delete</mat-icon></button>
               </td>
             </tr>
             </tbody>

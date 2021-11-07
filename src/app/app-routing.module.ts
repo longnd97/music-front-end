@@ -15,7 +15,6 @@ import {UpdateSongComponent} from "./songManage/update-song/update-song.componen
 import {SearchComponent} from "./pages/search/search.component";
 import {SearchPageComponent} from "./pages/search-page/search-page.component";
 
-
 // @ts-ignore
 // @ts-ignore
 const routes: Routes = [

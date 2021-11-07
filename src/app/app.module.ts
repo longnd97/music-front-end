@@ -34,7 +34,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import {AuthGuard} from "./guards/auth.guard";
-import { PlaySongSearchComponent } from './songManage/play-song-search/play-song-search.component';
+import {MatMenuModule} from "@angular/material/menu";
 import { CreatePlaylistComponent } from './playlistManage/create-playlist/create-playlist.component';
 import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist.component';
 
@@ -62,7 +62,6 @@ import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist
     ChangePasswordComponent,
     SearchComponent,
     SearchPageComponent,
-    PlaySongSearchComponent,
     CreatePlaylistComponent,
     AllPlaylistComponent,
   ],
@@ -80,7 +79,8 @@ import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist
     MatProgressBarModule,
     NgxAudioPlayerModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

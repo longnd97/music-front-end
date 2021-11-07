@@ -31,6 +31,8 @@ import { UpdateSongComponent } from './songManage/update-song/update-song.compon
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import { SearchComponent } from './pages/search/search.component';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
 
 
 
@@ -49,11 +51,14 @@ import {MatButtonModule} from "@angular/material/button";
     UploadFileComponent,
     CreateSongComponent,
     MyListSongComponent,
+    DetailSongComponent,
     NewListSongComponent,
     UpdateSongComponent,
     DetailSongComponent,
     AllSongComponent,
     ChangePasswordComponent,
+    SearchComponent,
+    SearchPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,9 +12,10 @@ import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.compon
 import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
 import {UpdateSongComponent} from "./songManage/update-song/update-song.component";
+import {SearchComponent} from "./pages/search/search.component";
+import {SearchPageComponent} from "./pages/search-page/search-page.component";
 
 
-// @ts-ignore
 // @ts-ignore
 // @ts-ignore
 const routes: Routes = [
@@ -24,7 +25,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    children: [{
+      path: 'songs/:id/detail',
+      component: DetailSongComponent,
+    },]
   },
   {
     path:'users',
@@ -49,13 +54,13 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path:'songs/:id/detail',
-    component: DetailSongComponent,
-  },
-  {
     path: 'change-password',
     component: ChangePasswordComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'songs/search/:key',
+    component: SearchPageComponent
   },
   {
     path: 'songs/my-songs/:id/update',

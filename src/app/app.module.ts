@@ -33,9 +33,6 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatSelectModule} from "@angular/material/select";
-
 
 
 @NgModule({
@@ -61,6 +58,7 @@ import {MatSelectModule} from "@angular/material/select";
     ChangePasswordComponent,
     SearchComponent,
     SearchPageComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -77,8 +75,7 @@ import {MatSelectModule} from "@angular/material/select";
     NgxAudioPlayerModule,
     MatIconModule,
     MatButtonModule,
-    MatFormFieldModule,
-    MatSelectModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

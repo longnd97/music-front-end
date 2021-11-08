@@ -61,7 +61,9 @@ export class UpdateUserComponent implements OnInit {
       console.log(data);
       this.userService.updateById(id, data).pipe(first()).subscribe(
         res => {
-          this.router.navigate(['users']);
+          this.router.navigate(['users']).then(() => {
+            window.location.reload();
+          });
         },
         error => {
           alert(error);

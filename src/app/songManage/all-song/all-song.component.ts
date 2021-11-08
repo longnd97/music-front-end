@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SongService} from "../../services/song.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {SongService} from "../../services/song.service";
 })
 export class AllSongComponent implements OnInit {
   songs?: any;
-  songId?: number;
+  @Output() songId = new EventEmitter<number>();
 
   constructor(private serviceSong: SongService) {
   }
@@ -26,6 +26,7 @@ export class AllSongComponent implements OnInit {
 
   playSong(event: any, songId: number) {
     event.preventDefault();
-    this.songId = songId;
+    this.songId.emit(songId);
   }
+
 }

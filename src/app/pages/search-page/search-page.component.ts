@@ -54,6 +54,5 @@ export class SearchPageComponent implements OnInit {
   playSong(event: any, songId: number) {
     event.preventDefault();
     this.songId = songId;
-
   }
 }

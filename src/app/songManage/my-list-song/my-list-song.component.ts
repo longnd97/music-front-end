@@ -22,6 +22,7 @@ export class MyListSongComponent implements OnInit {
   listSong: Track[] = [];
   user_id: any;
   id: any;
+  songId?:number;
 
   constructor(private songService: SongService,
               private router: Router
@@ -58,13 +59,16 @@ export class MyListSongComponent implements OnInit {
         this.song=res;
         console.log(this.song)
         this.getMySongs();
-
       })
     }
-
   }
 
   onEnded($event: string) {
     console.log($event);
+  }
+
+  playSong(event: any, songId: number) {
+    event.preventDefault();
+    this.songId = songId;
   }
 }

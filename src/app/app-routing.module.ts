@@ -32,8 +32,8 @@ const routes: Routes = [
     },]
   },
   {
-    path:'users',
-    component:UserComponent,
+    path: 'users',
+    component: UserComponent,
   },
   {
     path: 'users/:id/update',
@@ -51,6 +51,12 @@ const routes: Routes = [
   {
     path: 'songs/my-songs',
     component: MyListSongComponent,
+    children: [
+      {
+      path: 'songs/:id/detail',
+      component: DetailSongComponent,
+    },
+    ],
     canActivate: [AuthGuard]
   },
   {

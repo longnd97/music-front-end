@@ -7,18 +7,22 @@ import {SongService} from "../../services/song.service";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  songId: any;
 
 
-  constructor( private songService:SongService) { }
+  constructor(private songService: SongService) {
+  }
 
 
   ngOnInit(): void {
-
   }
 
   onChangeAvatar($event: string) {
     console.log('avatar ===> ', $event)
   }
 
+  getSongId(songId: number) {
+    this.songId = songId;
+  }
 
 }

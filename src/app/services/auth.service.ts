@@ -16,6 +16,14 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
+    return this.http.post(environment.api_url + 'logout', null, this.getToken());
+  }
+
+  register(data: any): Observable<any> {
+    return this.http.post(environment.api_url + 'register', data);
+  }
+
+  getToken(){
     let t = localStorage.getItem('token');
     let headers_object = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -24,12 +32,6 @@ export class AuthService {
     const httpOptions = {
       headers: headers_object
     };
-    return this.http.post(environment.api_url + 'logout', null, httpOptions);
+    return httpOptions;
   }
-
-  register(data: any): Observable<any> {
-    return this.http.post(environment.api_url + 'register', data);
-  }
-
-
 }

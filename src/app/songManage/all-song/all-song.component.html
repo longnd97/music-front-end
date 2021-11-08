@@ -1,8 +1,6 @@
 <div class="row">
   <div class="col-12 col-sm-6 col-md-4 col-lg-2" *ngFor="let song of songs">
     <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
-
-
       <div>
         <div class="album-thumb">
           <img src="{{song.image}}" alt="">
@@ -25,4 +23,4 @@
     </div>
   </div>
 </div>
-<app-detail-song *ngIf="songId" [songId]="songId"></app-detail-song>
+<!--<app-detail-song *ngIf="songId" [songId]="songId"></app-detail-song>-->

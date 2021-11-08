@@ -144,7 +144,7 @@
     </div>
     <div>
       <!-- song list -->
-      <app-all-song></app-all-song>
+      <app-all-song (songId)="getSongId($event)"></app-all-song>
     </div>
     <div class="row">
       <div class="col-12">
@@ -282,7 +282,7 @@
             <p>See what’s new</p>
             <h2>New Hits</h2>
           </div>
-          <app-new-list-song></app-new-list-song>
+          <app-new-list-song (songId)="getSongId($event)"></app-new-list-song>
         </div>
       </div>
       <!-- ***** Popular Artists ***** -->
@@ -421,4 +421,4 @@
     </div>
   </div>
 </section>
-<!--<router-outlet></router-outlet>-->
+<app-detail-song *ngIf="songId" [songId]="songId"></app-detail-song>

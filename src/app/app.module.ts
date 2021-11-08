@@ -30,6 +30,7 @@ import { AllSongComponent } from './songManage/all-song/all-song.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 
@@ -55,20 +56,21 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
     SearchComponent,
     SearchPageComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule,
-    MatProgressSpinnerModule,
-    FormsModule,
-    MatProgressBarModule,
-    NgxAudioPlayerModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireStorageModule,
+        MatProgressSpinnerModule,
+        FormsModule,
+        MatProgressBarModule,
+        NgxAudioPlayerModule,
+        MatPaginatorModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

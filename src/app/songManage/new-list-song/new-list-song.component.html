@@ -1,7 +1,7 @@
 <div *ngFor="let song of newSongs">
   <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
        data-wow-delay="100ms">
-    <div class="first-part d-flex align-items-center">
+    <a href="#" (click)="playSong($event,song.id)" class="first-part d-flex align-items-center">
       <div class="thumbnail">
         <img src="{{song.image}}" alt="">
       </div>
@@ -9,10 +9,9 @@
         <h6>{{song.name}}</h6>
         <p>{{song.author}}</p>
       </div>
-    </div>
-    <audio preload="auto" controls>
-      <source src="{{song.file_mp3}}">
-    </audio>
+    </a>
   </div>
   <hr>
 </div>
+<!--<app-detail-song *ngIf="songId" [songId]="songId"></app-detail-song>-->
+

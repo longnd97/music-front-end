@@ -13,7 +13,7 @@ import {Subscription} from "rxjs";
 })
 export class SearchComponent implements OnInit {
 
-  @Output() clickSearch = new EventEmitter<string>()
+  @Output() clickSearch = new EventEmitter<string>();
   value?: string;
   songs?: any;
   key?: string;

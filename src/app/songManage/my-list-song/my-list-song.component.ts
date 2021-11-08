@@ -10,19 +10,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./my-list-song.component.css']
 })
 export class MyListSongComponent implements OnInit {
-  msaapDisplayTitle = true;
-  msaapDisplayPlayList = true;
-  msaapPageSizeOptions = [10, 20];
-  msaapDisplayVolumeControls = true;
-  msaapDisplayRepeatControls = true;
-  msaapDisplayArtist = false;
-  msaapDisplayDuration = false;
   mySongs: any;
   song: any;
   listSong: Track[] = [];
   user_id: any;
   id: any;
-  songId?:number;
+  songId?: number;
 
   constructor(private songService: SongService,
               private router: Router
@@ -32,7 +25,6 @@ export class MyListSongComponent implements OnInit {
   ngOnInit(): void {
     this.user_id = localStorage.getItem('id');
     this.getMySongs();
-    this.listSong;
   }
 
   getMySongs() {
@@ -53,18 +45,13 @@ export class MyListSongComponent implements OnInit {
     this.router.navigate(['songs/my-songs/' + songId + '/update']).then();
   }
 
-  deleteSong(songId:number){
-    if (confirm(" Bạn có chắc chắn muốn xoá bài hát ? ")){
-      this.songService.deleteSong(songId).subscribe(res=>{
-        this.song=res;
-        console.log(this.song)
+  deleteSong(songId: number) {
+    if (confirm(" Bạn có chắc chắn muốn xoá bài hát ? ")) {
+      this.songService.deleteSong(songId).subscribe(res => {
+        this.song = res;
         this.getMySongs();
       })
     }
-  }
-
-  onEnded($event: string) {
-    console.log($event);
   }
 
   playSong(event: any, songId: number) {

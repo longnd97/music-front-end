@@ -37,6 +37,8 @@ import {AuthGuard} from "./guards/auth.guard";
 import {MatMenuModule} from "@angular/material/menu";
 import { CreatePlaylistComponent } from './playlistManage/create-playlist/create-playlist.component';
 import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist.component';
+import { MyPlaylistComponent } from './playlistManage/my-playlist/my-playlist.component';
+import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail-playlist.component';
 
 
 @NgModule({
@@ -64,6 +66,8 @@ import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist
     SearchPageComponent,
     CreatePlaylistComponent,
     AllPlaylistComponent,
+    MyPlaylistComponent,
+    DetailPlaylistComponent,
   ],
   imports: [
     BrowserModule,

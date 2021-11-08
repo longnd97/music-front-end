@@ -15,6 +15,8 @@ import {UpdateSongComponent} from "./songManage/update-song/update-song.componen
 import {SearchComponent} from "./pages/search/search.component";
 import {SearchPageComponent} from "./pages/search-page/search-page.component";
 import {CreatePlaylistComponent} from "./playlistManage/create-playlist/create-playlist.component";
+import {MyPlaylistComponent} from "./playlistManage/my-playlist/my-playlist.component";
+import {DetailPlaylistComponent} from "./playlistManage/detail-playlist/detail-playlist.component";
 
 // @ts-ignore
 // @ts-ignore
@@ -51,12 +53,6 @@ const routes: Routes = [
   {
     path: 'songs/my-songs',
     component: MyListSongComponent,
-    children: [
-      {
-      path: 'songs/:id/detail',
-      component: DetailSongComponent,
-    },
-    ],
     canActivate: [AuthGuard]
   },
   {
@@ -85,7 +81,17 @@ const routes: Routes = [
     path: 'playlist/create',
     component: CreatePlaylistComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'playlist/my-playlist',
+    component: MyPlaylistComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'playlist/:id/detail',
+    component: DetailPlaylistComponent,
   }
+
 ];
 
 @NgModule({

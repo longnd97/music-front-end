@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../environments/environment";
@@ -8,7 +8,8 @@ import {environment} from "../../environments/environment";
 })
 export class PlaylistService {
 
-  constructor( private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getAuthHeaders() {
     const token = localStorage.getItem('token')
@@ -18,12 +19,31 @@ export class PlaylistService {
     });
   }
 
-  createPlaylist(data:any):Observable<any>{
-    return this.http.post(environment.api_url + 'playlists/create-playlist',data,{headers:this.getAuthHeaders()})
+  createPlaylist(data: any): Observable<any> {
+    return this.http.post(environment.api_url + 'playlists/create-playlist', data, {headers: this.getAuthHeaders()})
   }
 
   getCategories(): Observable<any> {
     return this.http.get(environment.api_url + 'categories');
   }
 
+  getMyPlaylists(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'playlists/my-playlist/' + id, {headers: this.getAuthHeaders()});
+  }
+
+  getPlayList(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'playlists/' + id + '/get-playlist', {headers: this.getAuthHeaders()});
+  }
+
+  getSongs(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'playlists/' + id + '/get-songs', {headers: this.getAuthHeaders()});
+  }
+
+  addSong(data: any): Observable<any> {
+    return this.http.post(environment.api_url + 'playlists/add-song', data, {headers: this.getAuthHeaders()})
+  }
+
+  delete(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'playlists/' + id + '/delete', {headers: this.getAuthHeaders()})
+  }
 }

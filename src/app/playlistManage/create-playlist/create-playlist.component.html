@@ -1,0 +1,52 @@
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/bg-2.jpg)">
+  <div class="bradcumbContent">
+    <p>Âm nhạc không chỉ để nghe</p>
+    <h1>Âm nhạc còn là MUSIC</h1>
+  </div>
+</section>
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <h2>Tạo mới playlist</h2>
+          <div class="create-song-form">
+            <form *ngIf="createPlaylistForm" [formGroup]="createPlaylistForm" (ngSubmit)="submit()" novalidate>
+              <div class="form-group">
+                <label>Tên playlist:</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="name" class="form-control"
+                       placeholder="Vui lòng nhập tên playlist">
+              </div>
+              <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="name?.errors?.required">
+                  Tên playlist không được để trống
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Mô tả playlist:</label><strong class="text-danger">*</strong>
+                <textarea type="text" formControlName="description" class="form-control"></textarea>
+              </div>
+              <div *ngIf="description?.invalid && (description?.dirty || description?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="description?.errors?.required">
+                  Vui lòng mô tả playlist
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Chọn dòng nhạc:</label><strong class="text-danger">*</strong>
+                <select class="form-control" (change)="selectedCategory($event)">
+                  <option>Chọn dòng nhạc</option>
+                  <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn oneMusic-btn mt-30">Tạo playlist</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -7,28 +7,35 @@ import {environment} from "../../environments/environment";
   providedIn: 'root'
 })
 export class SongService {
-
+  headers = new HttpHeaders({
+    'Content-Type': 'application/json',})
   constructor(private http: HttpClient) {
   }
 
   createSong(data: any): Observable<any> {
-    let t = localStorage.getItem('token');
-    let headers_object = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer " + t
-    })
-    const httpOptions = {
-      headers: headers_object
-    };
-    return this.http.post(environment.api_url + 'users/create-song', data, httpOptions);
+    return this.http.post(environment.api_url + 'songs/create-song', data, this.getToken());
   }
 
+  detailSongId(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/' + id + '/detailSong', this.getToken());
+  }
+
+  updateSong(id: number, data: any): Observable<any> {
+    return this.http.put(environment.api_url + 'songs/' + id + '/update', data, this.getToken());
+  }
+  getAuthHeaders() {
+    const token = localStorage.getItem('token')
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    });
+  }
   getCategories(): Observable<any> {
     return this.http.get(environment.api_url + 'categories');
   }
 
   getMySongs(id: any): Observable<any> {
-    return this.http.get(environment.api_url + 'my-songs/' + id);
+    return this.http.get(environment.api_url + 'songs/my-songs/' + id, this.getToken());
   }
 
   getNewSongs(): Observable<any> {
@@ -45,7 +52,26 @@ export class SongService {
 
   search(key:string):Observable<any>{
     // @ts-ignore
-    return this.http.get(environment.api_url + 'songs/search/'+ key)
+    return this.http.get(environment.api_url + 'songs/search/'+ key);
+  }
+  deleteSong(id:number):Observable<any>{
+    // @ts-ignore
+    return this.http.get(environment.api_url + 'songs/' + id + '/delete',{headers:this.getAuthHeaders()});
   }
 
+
+
+  getToken(){
+    let t = localStorage.getItem('token');
+    let headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " + t
+    })
+    const httpOptions = {
+      headers: headers_object
+    };
+    return httpOptions;
+  }
 }
+
+

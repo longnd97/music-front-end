@@ -26,18 +26,25 @@
             <div class="classynav">
               <ul>
                 <li><a routerLink="/">Trang chủ</a></li>
-                <li><a href="/change-password">Đổi mật khẩu</a>
-                <li><a routerLink="/my-songs">Bài hát của tôi</a></li>
+                <li><a routerLink="songs/my-songs">Bài hát của tôi</a></li>
                 <li><a routerLink="/songs/create">Thêm bài hát</a></li>
+                <li><a routerLink="">Playlist của tôi</a></li>
+                <li><a routerLink="/playlist/create">Thêm playlist</a></li>
               </ul>
-
               <!-- Login/Register & Cart Button -->
               <div class="login-register-cart-button d-flex align-items-center">
                 <!-- Login/Register -->
                 <div class="login-register-btn mr-50">
                   <a *ngIf="!check" routerLink="login">Đăng nhập/</a>
-                  <a *ngIf="check" routerLink="users">{{name}}/</a>
-                  <a *ngIf="check" (click)="logout()">Đăng xuất</a>
+                  <button style="color: white" *ngIf="check" mat-button [matMenuTriggerFor]="beforeMenu" mat-icon-button>
+                    <img style="border-radius: 50%; width: 80%" src="{{imageUser.avatar}}" alt="">
+                  </button>
+                  <mat-menu #beforeMenu="matMenu" xPosition="before">
+                    <button mat-menu-item><a *ngIf="check" routerLink="users">Tài khoản</a></button>
+                    <button mat-menu-item><a *ngIf="check" href="/change-password">Đổi mật khẩu</a></button>
+                    <button mat-menu-item><a *ngIf="check" (click)="logout()">Đăng xuất</a></button>
+                  </mat-menu>
+                  <a>{{name}}</a>
                   <a *ngIf="!check" routerLink="register">Đăng ký</a>
                 </div>
                 <!-- Cart Button -->
@@ -46,14 +53,10 @@
             <!-- Nav End -->
           </div>
         </nav>
-        <!-- <div class="container">
-           <div class="row height d-flex justify-content-center align-items-center">-->
         <div class="col-md-12">
           <app-search></app-search>
         </div>
       </div>
-
-
     </div>
   </div>
 </header>

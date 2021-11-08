@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {SongService} from "../../services/song.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-navbar',
@@ -15,11 +16,12 @@ export class NavbarComponent implements OnInit {
   value?: string;
   searchForm?:any;
   songs?:any;
-
+  imageUser:any;
 
   constructor(private authService: AuthService,
               private router: Router,
-              private songService:SongService
+              private userService: UserService
+
   ) {
   }
 
@@ -29,12 +31,11 @@ export class NavbarComponent implements OnInit {
       this.data = localStorage.getItem('user_name');
       this.name = JSON.parse(this.data);
     }
+    this.getImageUser();
   }
 
   logout() {
     if (confirm("Bạn có thực sự muốn đăng xuất")) {
-
-
       this.authService.logout().subscribe(res => {
         console.log(res)
         if (res.status === 'success') {
@@ -49,6 +50,10 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-
-
+  getImageUser() {
+    this.userService.getInfoUserLogin().subscribe(res => {
+      console.log(res)
+      this.imageUser = res
+    })
+  }
 }

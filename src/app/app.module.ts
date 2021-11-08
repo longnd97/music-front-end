@@ -27,11 +27,16 @@ import {AngularFireModule} from "@angular/fire";
 import { DetailSongComponent } from './songManage/detail-song/detail-song.component';
 import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
 import { AllSongComponent } from './songManage/all-song/all-song.component';
+import { UpdateSongComponent } from './songManage/update-song/update-song.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
 import { SearchComponent } from './pages/search/search.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
-import {MatPaginatorModule} from "@angular/material/paginator";
-
+import {AuthGuard} from "./guards/auth.guard";
+import {MatMenuModule} from "@angular/material/menu";
+import { CreatePlaylistComponent } from './playlistManage/create-playlist/create-playlist.component';
+import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist.component';
 
 
 @NgModule({
@@ -51,27 +56,34 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MyListSongComponent,
     DetailSongComponent,
     NewListSongComponent,
+    UpdateSongComponent,
+    DetailSongComponent,
     AllSongComponent,
     ChangePasswordComponent,
     SearchComponent,
     SearchPageComponent,
+    CreatePlaylistComponent,
+    AllPlaylistComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireStorageModule,
-        MatProgressSpinnerModule,
-        FormsModule,
-        MatProgressBarModule,
-        NgxAudioPlayerModule,
-        MatPaginatorModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    MatProgressBarModule,
+    NgxAudioPlayerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule
+  ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
+
 export class AppModule { }

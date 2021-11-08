@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {SongService} from "../../services/song.service";
 import {Track} from "ngx-audio-player";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-my-list-song',
@@ -19,13 +21,18 @@ export class MyListSongComponent implements OnInit {
   song: any;
   listSong: Track[] = [];
   user_id: any;
+  id: any;
+  songId?:number;
 
-  constructor(private songService: SongService) {
+  constructor(private songService: SongService,
+              private router: Router
+  ) {
   }
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('id');
     this.getMySongs();
+    this.listSong;
   }
 
   getMySongs() {
@@ -42,7 +49,26 @@ export class MyListSongComponent implements OnInit {
     })
   }
 
+  updateSong(songId: number) {
+    this.router.navigate(['songs/my-songs/' + songId + '/update']).then();
+  }
+
+  deleteSong(songId:number){
+    if (confirm(" Bạn có chắc chắn muốn xoá bài hát ? ")){
+      this.songService.deleteSong(songId).subscribe(res=>{
+        this.song=res;
+        console.log(this.song)
+        this.getMySongs();
+      })
+    }
+  }
+
   onEnded($event: string) {
     console.log($event);
+  }
+
+  playSong(event: any, songId: number) {
+    event.preventDefault();
+    this.songId = songId;
   }
 }

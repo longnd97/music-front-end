@@ -11,9 +11,10 @@ import {AuthGuard} from "./guards/auth.guard";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {DetailSongComponent} from "./songManage/detail-song/detail-song.component";
 import {ChangePasswordComponent} from "./pages/change-password/change-password.component";
+import {UpdateSongComponent} from "./songManage/update-song/update-song.component";
 import {SearchComponent} from "./pages/search/search.component";
 import {SearchPageComponent} from "./pages/search-page/search-page.component";
-
+import {CreatePlaylistComponent} from "./playlistManage/create-playlist/create-playlist.component";
 
 // @ts-ignore
 // @ts-ignore
@@ -31,8 +32,8 @@ const routes: Routes = [
     },]
   },
   {
-    path:'users',
-    component:UserComponent,
+    path: 'users',
+    component: UserComponent,
   },
   {
     path: 'users/:id/update',
@@ -48,8 +49,14 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'my-songs',
+    path: 'songs/my-songs',
     component: MyListSongComponent,
+    children: [
+      {
+      path: 'songs/:id/detail',
+      component: DetailSongComponent,
+    },
+    ],
     canActivate: [AuthGuard]
   },
   {
@@ -59,8 +66,26 @@ const routes: Routes = [
   },
   {
     path: 'songs/search/:key',
-    component: SearchPageComponent
+    component: SearchPageComponent,
+    children: [{
+      path: 'songs/:id/detail',
+      component: DetailSongComponent,
+    },]
   },
+  {
+    path: 'songs/my-songs/:id/update',
+    component: UpdateSongComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'songs/:id/play',
+    component: DetailSongComponent,
+  },
+  {
+    path: 'playlist/create',
+    component: CreatePlaylistComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({

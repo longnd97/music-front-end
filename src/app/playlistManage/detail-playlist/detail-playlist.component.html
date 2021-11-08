@@ -1,0 +1,63 @@
+<section class="breadcumb-area bg-img bg-overlay"
+         style="background-image: url(assets/img/bg-img/breadcumb3.jpg)">
+  <div class="bradcumbContent">
+    <p>Âm nhạc không chỉ để nghe</p>
+    <h1>Âm nhạc còn là MUSIC</h1>
+  </div>
+</section>
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-6">
+        <div class="login-content">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th colspan="4" style="text-align: center!important;">Danh sách bài hát</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor=" let song of allSong">
+              <td>
+                <img src="https://img.icons8.com/material-outlined/24/000000/musical-notes.png"/>
+                <a>{{song.name}}</a>
+              </td>
+              <td>
+                <button mat-icon-button color="primary" (click)="addSong(song.id)">
+                  <mat-icon>double_arrow</mat-icon>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="login-content">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th colspan="4" style="text-align: center!important;">{{name}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor=" let song of listSongs">
+              <td>
+                <img src="https://img.icons8.com/material-outlined/24/000000/musical-notes.png"/>
+                <a href="#">{{song.name}}</a>
+              </td>
+              <td>
+                <button mat-icon-button color="accent" (click)="deleteSong(song.id)">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

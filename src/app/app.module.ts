@@ -42,6 +42,7 @@ import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail
 import { UpdatePlaylistComponent } from './playlistManage/update-playlist/update-playlist.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

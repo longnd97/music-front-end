@@ -14,8 +14,7 @@
             <form *ngIf="updateSongForm" [formGroup]="updateSongForm" (ngSubmit)="submit()" novalidate>
               <div class="form-group">
                 <label>Sửa tên bài hát:</label><strong class="text-danger">*</strong>
-                <input type="text" formControlName="name" class="form-control"
-                       >
+                <input type="text" formControlName="name" class="form-control">
               </div>
               <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
                    class="alert alert-danger">

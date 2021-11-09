@@ -52,7 +52,6 @@ export class NavbarComponent implements OnInit {
 
   getImageUser() {
     this.userService.getInfoUserLogin().subscribe(res => {
-      console.log(res)
       this.imageUser = res
     })
   }

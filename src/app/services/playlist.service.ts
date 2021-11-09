@@ -50,4 +50,9 @@ export class PlaylistService {
   search(key:string):Observable<any>{
     return this.http.get(environment.api_url + 'playlists/search/' + key );
   }
+
+  getSongId(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'playlists/' + id + '/song-id', {headers: this.getAuthHeaders()})
+  }
+
 }

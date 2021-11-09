@@ -30,14 +30,6 @@ export class MyListSongComponent implements OnInit {
   getMySongs() {
     this.songService.getMySongs(this.user_id).subscribe(res => {
       this.mySongs = res;
-      for (let song of this.mySongs) {
-        this.song = {
-          title: song.name,
-          link: song.file_mp3
-        }
-        // @ts-ignore
-        this.listSong.push(this.song);
-      }
     })
   }
 

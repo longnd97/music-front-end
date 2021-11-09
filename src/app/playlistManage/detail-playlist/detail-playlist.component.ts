@@ -13,6 +13,8 @@ export class DetailPlaylistComponent implements OnInit {
   listSongs: any;
   allSong: any;
   name: any;
+  songId?: number;
+  countSong?: number;
 
   constructor(private playlistService: PlaylistService,
               private routerGetIdURL: ActivatedRoute,
@@ -40,7 +42,7 @@ export class DetailPlaylistComponent implements OnInit {
   getAllSongs() {
     this.songService.getAll().subscribe(res => {
       this.allSong = res;
-    })
+    });
   }
 
   addSong(id: number) {
@@ -49,13 +51,28 @@ export class DetailPlaylistComponent implements OnInit {
       'song_id': id,
     }
     this.playlistService.addSong(data).subscribe(res => {
+      console.log(res)
       this.getSongs();
-    })
+      if (res.status === 'errorLimit') {
+        alert(res.message);
+      }
+      if (res.status === 'errorMatch') {
+        alert(res.message);
+      }
+    });
   }
 
   deleteSong(id: number) {
     this.playlistService.delete(id).subscribe(res => {
       this.getSongs();
-    })
+    });
+  }
+
+  playSong(event: any, songId: number) {
+    event.preventDefault();
+    this.playlistService.getSongId(songId).subscribe(res => {
+      console.log(res[0].song_id)
+      this.songId = res[0].song_id;
+    });
   }
 }

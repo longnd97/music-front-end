@@ -9,16 +9,11 @@ import {SongService} from "../../services/song.service";
 export class HomeComponent implements OnInit {
   songId: any;
 
-
   constructor(private songService: SongService) {
   }
 
-
   ngOnInit(): void {
-  }
-
-  onChangeAvatar($event: string) {
-    console.log('avatar ===> ', $event)
+    window.scroll(0, 0);
   }
 
   getSongId(songId: number) {

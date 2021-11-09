@@ -7,8 +7,18 @@ import {environment} from "../../environments/environment";
   providedIn: 'root'
 })
 export class SongService {
-  headers = new HttpHeaders({
-    'Content-Type': 'application/json',})
+  getToken() {
+    let t = localStorage.getItem('token');
+    let headers_object = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " + t
+    })
+    const httpOptions = {
+      headers: headers_object
+    };
+    return httpOptions;
+  }
+
   constructor(private http: HttpClient) {
   }
 
@@ -23,13 +33,7 @@ export class SongService {
   updateSong(id: number, data: any): Observable<any> {
     return this.http.put(environment.api_url + 'songs/' + id + '/update', data, this.getToken());
   }
-  getAuthHeaders() {
-    const token = localStorage.getItem('token')
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${token}`
-    });
-  }
+
   getCategories(): Observable<any> {
     return this.http.get(environment.api_url + 'categories');
   }
@@ -39,39 +43,33 @@ export class SongService {
   }
 
   getNewSongs(): Observable<any> {
-    return this.http.get(environment.api_url + 'new-songs/');
+    return this.http.get(environment.api_url + 'songs/new-songs/');
   }
 
-  detailSong(id:any): Observable<any>{
-    return this.http.get(environment.api_url +'songs/'+id+ '/play');
+  getSongManyListens(): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/many-listens');
   }
 
-  getAll():Observable<any>{
+  detailSong(id: any): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/' + id + '/play');
+  }
+
+  getAll(): Observable<any> {
     return this.http.get(environment.api_url + 'songs/list');
   }
 
-  search(key:string):Observable<any>{
-    // @ts-ignore
-    return this.http.get(environment.api_url + 'songs/search/'+ key);
-  }
-  deleteSong(id:number):Observable<any>{
-    // @ts-ignore
-    return this.http.get(environment.api_url + 'songs/' + id + '/delete',{headers:this.getAuthHeaders()});
+  search(key: string): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/search/' + key);
   }
 
-
-
-  getToken(){
-    let t = localStorage.getItem('token');
-    let headers_object = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': "Bearer " + t
-    })
-    const httpOptions = {
-      headers: headers_object
-    };
-    return httpOptions;
+  deleteSong(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/' + id + '/delete', this.getToken());
   }
+
+  Liked(data: any): Observable<any> {
+    return this.http.post(environment.api_url + 'songs/add-liked', data, this.getToken());
+  }
+
 }
 
 

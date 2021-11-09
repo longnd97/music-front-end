@@ -24,21 +24,21 @@ import {NgxAudioPlayerModule} from "ngx-audio-player";
 import {MyListSongComponent} from "./songManage/my-list-song/my-list-song.component";
 import {AngularFireStorageModule} from "@angular/fire/storage";
 import {AngularFireModule} from "@angular/fire";
-import { DetailSongComponent } from './songManage/detail-song/detail-song.component';
-import { NewListSongComponent } from './songManage/new-list-song/new-list-song.component';
-import { AllSongComponent } from './songManage/all-song/all-song.component';
-import { UpdateSongComponent } from './songManage/update-song/update-song.component';
-import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import {DetailSongComponent} from './songManage/detail-song/detail-song.component';
+import {NewListSongComponent} from './songManage/new-list-song/new-list-song.component';
+import {AllSongComponent} from './songManage/all-song/all-song.component';
+import {UpdateSongComponent} from './songManage/update-song/update-song.component';
+import {ChangePasswordComponent} from './pages/change-password/change-password.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
-import { SearchComponent } from './pages/search/search.component';
-import { SearchPageComponent } from './pages/search-page/search-page.component';
-import {AuthGuard} from "./guards/auth.guard";
+import {SearchComponent} from './pages/search/search.component';
+import {SearchPageComponent} from './pages/search-page/search-page.component';
 import {MatMenuModule} from "@angular/material/menu";
-import { CreatePlaylistComponent } from './playlistManage/create-playlist/create-playlist.component';
-import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist.component';
-import { MyPlaylistComponent } from './playlistManage/my-playlist/my-playlist.component';
-import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail-playlist.component';
+import {CreatePlaylistComponent} from './playlistManage/create-playlist/create-playlist.component';
+import {AllPlaylistComponent} from './playlistManage/all-playlist/all-playlist.component';
+import {MyPlaylistComponent} from './playlistManage/my-playlist/my-playlist.component';
+import {DetailPlaylistComponent} from './playlistManage/detail-playlist/detail-playlist.component';
+import {ManyListensListSongComponent} from './songManage/many-listens-list-song/many-listens-list-song.component';
 
 
 @NgModule({
@@ -68,6 +68,7 @@ import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail
     AllPlaylistComponent,
     MyPlaylistComponent,
     DetailPlaylistComponent,
+    ManyListensListSongComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,4 +91,5 @@ import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail
   bootstrap: [AppComponent],
 })
 
-export class AppModule { }
+export class AppModule {
+}

@@ -19,7 +19,12 @@ export class SearchPageComponent implements OnInit {
   value?: number;
   songId?: number;
   playlists: any;
-  status?:string;
+  status?: string;
+  isLimit?: number;
+  moreDataSong: any;
+  limit = 1;
+  isMore = true;
+  moreDataPlaylist: any;
 
 
   constructor(private songService: SongService,
@@ -31,7 +36,8 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getSongs()
+      this.getSongs();
+      this.getPlaylists()
   }
 
   getKey() {
@@ -44,23 +50,30 @@ export class SearchPageComponent implements OnInit {
       this.otherMessage = message;
       this.songService.search(this.otherMessage).subscribe(res => {
         this.songs = res;
-        this.status='';
-        if(res.length==0){
-          this.status='trống';
+        this.moreDataSong = this.songs.slice(0, this.limit * 6);
+        this.status = '';
+        if (res.length == 0) {
+          this.status = 'Trống';
         }
-        console.log(this.songs)
       })
-      this.playlistService.search(this.otherMessage).subscribe(res=>{
-        this.playlists = res;
-        this.status='';
-        if(res.length==0){
-          this.status='trống';
-        }
-        console.log(this.playlists)
-      })
+
     })
   }
 
+  getPlaylists() {
+    // @ts-ignore
+    this.otherMessage = this.dataService.currentMessage.subscribe(message => {
+      this.otherMessage = message;
+      this.playlistService.search(this.otherMessage).subscribe(res => {
+        this.playlists = res;
+        this.moreDataPlaylist = this.playlists.slice(0, this.limit * 6);
+        this.status = '';
+        if (res.length == 0) {
+          this.status = 'Trống';
+        }
+      })
+    })
+  }
 
   back() {
     this.otherMessage = '';
@@ -72,8 +85,31 @@ export class SearchPageComponent implements OnInit {
     this.songId = songId;
   }
 
-  getPlaylist(event: any,id: number) {
+  getPlaylist(event: any, id: number) {
     event.preventDefault();
     this.router.navigate(['playlist/' + id + '/detail']);
   }
+
+  onMore() {
+    this.isLimit = this.songs.length - 6 * this.limit;
+    this.limit += 1;
+    this.getSongs();
+    if (this.isLimit > 6) {
+      this.isMore = true;
+    } else {
+      this.isMore = false;
+    }
+  }
+
+  onMorePlaylist() {
+    this.isLimit = this.songs.length - 6 * this.limit;
+    this.limit += 1;
+    this.getPlaylists();
+    if (this.isLimit > 6) {
+      this.isMore = true;
+    } else {
+      this.isMore = false;
+    }
+  }
+
 }

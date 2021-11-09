@@ -42,7 +42,6 @@ import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +69,8 @@ import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail
     AllPlaylistComponent,
     MyPlaylistComponent,
     DetailPlaylistComponent,
+
+
   ],
   imports: [
     BrowserModule,

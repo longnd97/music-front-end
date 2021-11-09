@@ -32,8 +32,16 @@ export class MyPlaylistComponent implements OnInit {
     this.router.navigate(['playlist/' + id + '/detail']);
   }
 
-  updatePlaylist(id:number) {
+  updatePlaylist(id: number) {
     this.router.navigate(['playlist/' + id + '/update'])
+  }
+
+  deletePlaylist(id: number) {
+    if (confirm(" Bạn có chắc chắn muốn xoá playlist ? ")) {
+      this.playlistService.delete_playlist(id).subscribe(res => {
+        this.getMyPlaylists();
+      });
+    }
   }
 }
 

@@ -39,6 +39,7 @@ import {AllPlaylistComponent} from './playlistManage/all-playlist/all-playlist.c
 import {MyPlaylistComponent} from './playlistManage/my-playlist/my-playlist.component';
 import {DetailPlaylistComponent} from './playlistManage/detail-playlist/detail-playlist.component';
 import {ManyListensListSongComponent} from './songManage/many-listens-list-song/many-listens-list-song.component';
+import {UpdatePlaylistComponent} from './playlistManage/update-playlist/update-playlist.component';
 
 
 @NgModule({
@@ -69,6 +70,7 @@ import {ManyListensListSongComponent} from './songManage/many-listens-list-song/
     MyPlaylistComponent,
     DetailPlaylistComponent,
     ManyListensListSongComponent,
+    UpdatePlaylistComponent,
   ],
   imports: [
     BrowserModule,

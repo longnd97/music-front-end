@@ -13,14 +13,24 @@
           <table class="table table-hover">
             <thead>
             <tr>
-              <th colspan="4" style="text-align: center!important;">Danh sách playlist</th>
+              <th colspan="3" style="text-align: center!important;">Danh sách playlist</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor=" let playlist of myPlaylists">
-              <td>
+              <td style="text-align: left">
                 <img src="https://img.icons8.com/material-outlined/24/000000/musical-notes.png"/>
                 <button mat-button color="accent" (click)="getPlaylist(playlist.id)">{{playlist.name}}</button>
+              </td>
+              <td>
+                <button mat-icon-button (click)="updatePlaylist(playlist.id)" color="primary">
+                  <mat-icon>border_color</mat-icon>
+                </button>
+              </td>
+              <td>
+                <button mat-icon-button (click)="deletePlaylist(playlist.id)" color="warn">
+                  <mat-icon>delete</mat-icon>
+                </button>
               </td>
             </tr>
             </tbody>

@@ -24,6 +24,7 @@
 
             <!-- Nav Start -->
             <div class="classynav">
+              <app-search></app-search>
               <ul>
                 <li><a routerLink="/">Trang chủ</a></li>
                 <li><a routerLink="songs/my-songs">Bài hát của tôi</a></li>
@@ -32,12 +33,12 @@
                 <li><a routerLink="/playlist/create">Thêm playlist</a></li>
               </ul>
               <!-- Login/Register & Cart Button -->
-              <div class="login-register-cart-button d-flex align-items-center">
+              <div style="margin: 0;padding: 0" class="login-register-cart-button d-flex align-items-center">
                 <!-- Login/Register -->
                 <div class="login-register-btn mr-50">
                   <a *ngIf="!check" routerLink="login">Đăng nhập/</a>
                   <button style="color: white" *ngIf="check" mat-button [matMenuTriggerFor]="beforeMenu" mat-icon-button>
-                    <a><img style="border-radius: 50%; width: 70%; margin-right: 10%" src="{{imageUser.avatar}}" alt="">{{name}}</a>
+                    <a><img style="border-radius: 50%; width: 70%; margin-right: 10%" *ngIf="imageUser" src="{{imageUser.avatar}}" alt="">{{name}}</a>
                   </button>
                   <mat-menu #beforeMenu="matMenu" xPosition="before">
                     <button mat-menu-item><a *ngIf="check" routerLink="users">Tài khoản</a></button>
@@ -54,7 +55,7 @@
           </div>
         </nav>
         <div class="col-md-12">
-          <app-search></app-search>
+
         </div>
       </div>
     </div>

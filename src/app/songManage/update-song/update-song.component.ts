@@ -12,11 +12,12 @@ import {first} from "rxjs/operators";
 export class UpdateSongComponent implements OnInit {
   updateSongForm?: FormGroup;
   categories?: any;
-  image = '';
   file_mp3 = '';
   selected = '';
   id = this.routerGetIdURL.snapshot.params.id;
   data: any;
+  image?: string;
+
 
   constructor(private songService: SongService,
               private fb: FormBuilder,

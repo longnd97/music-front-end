@@ -39,6 +39,7 @@ import { CreatePlaylistComponent } from './playlistManage/create-playlist/create
 import { AllPlaylistComponent } from './playlistManage/all-playlist/all-playlist.component';
 import { MyPlaylistComponent } from './playlistManage/my-playlist/my-playlist.component';
 import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail-playlist.component';
+import { UpdatePlaylistComponent } from './playlistManage/update-playlist/update-playlist.component';
 
 
 
@@ -69,8 +70,7 @@ import { DetailPlaylistComponent } from './playlistManage/detail-playlist/detail
     AllPlaylistComponent,
     MyPlaylistComponent,
     DetailPlaylistComponent,
-
-
+    UpdatePlaylistComponent,
   ],
   imports: [
     BrowserModule,

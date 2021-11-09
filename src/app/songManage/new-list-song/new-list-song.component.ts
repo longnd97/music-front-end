@@ -19,7 +19,6 @@ export class NewListSongComponent implements OnInit {
 
   getMySongs() {
     this.songService.getNewSongs().subscribe(res => {
-      console.log(res)
       this.newSongs = res;
     });
   }

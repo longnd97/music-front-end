@@ -11,6 +11,7 @@ export class MyPlaylistComponent implements OnInit {
   user_id: any;
   myPlaylists: any;
   playlist: any;
+  id?: any;
 
   constructor(private playlistService: PlaylistService,
               private router: Router) {
@@ -29,6 +30,18 @@ export class MyPlaylistComponent implements OnInit {
 
   getPlaylist(id: number) {
     this.router.navigate(['playlist/' + id + '/detail']);
+  }
+
+  updatePlaylist(id: number) {
+    this.router.navigate(['playlist/' + id + '/update'])
+  }
+
+  deletePlaylist(id: number) {
+    if (confirm(" Bạn có chắc chắn muốn xoá playlist ? ")) {
+      this.playlistService.delete_playlist(id).subscribe(res => {
+        this.getMyPlaylists();
+      });
+    }
   }
 }
 

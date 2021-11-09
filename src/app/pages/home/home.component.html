@@ -23,130 +23,28 @@
 </section>
 <!-- ##### Hero Area End ##### -->
 
-<!-- ##### Latest Albums Area Start ##### -->
-<section class="latest-albums-area section-padding-100">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-heading style-2">
-          <p>See what’s new</p>
-          <h2>Latest Albums</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-9">
-        <div class="ablums-text text-center mb-70">
-          <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce
-            nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus
-            nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non
-            eros.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <div class="albums-slideshow owl-carousel">
-          <!-- Single Album -->
-          <div class="single-album">
-            <img src="assets/img/bg-img/a1.jpg" alt="">
-            <div class="album-info">
-              <a href="#">
-                <h5>The Cure</h5>
-              </a>
-              <p>Second Song</p>
-            </div>
-          </div>
-
-          <!-- Single Album -->
-          <div class="single-album">
-            <img src="assets/img/bg-img/a2.jpg" alt="">
-            <div class="album-info">
-              <a href="#">
-                <h5>Sam Smith</h5>
-              </a>
-              <p>Underground</p>
-            </div>
-          </div>
-
-          <!-- Single Album -->
-          <div class="single-album">
-            <img src="assets/img/bg-img/a3.jpg" alt="">
-            <div class="album-info">
-              <a href="#">
-                <h5>Will I am</h5>
-              </a>
-              <p>First</p>
-            </div>
-          </div>
-
-          <!-- Single Album -->
-          <div class="single-album">
-            <img src="assets/img/bg-img/a4.jpg" alt="">
-            <div class="album-info">
-              <a href="#">
-                <h5>The Cure</h5>
-              </a>
-              <p>Second Song</p>
-            </div>
-          </div>
-
-          <!-- Single Album -->
-          <div class="single-album">
-            <img src="assets/img/bg-img/a5.jpg" alt="">
-            <div class="album-info">
-              <a href="#">
-                <h5>DJ SMITH</h5>
-              </a>
-              <p>The Album</p>
-            </div>
-          </div>
-
-          <!-- Single Album -->
-          <div class="single-album">
-            <img src="assets/img/bg-img/a6.jpg" alt="">
-            <div class="album-info">
-              <a href="#">
-                <h5>The Ustopable</h5>
-              </a>
-              <p>Unplugged</p>
-            </div>
-          </div>
-
-          <!-- Single Album -->
-          <div class="single-album">
-            <img src="assets/img/bg-img/a7.jpg" alt="">
-            <div class="album-info">
-              <a href="#">
-                <h5>Beyonce</h5>
-              </a>
-              <p>Songs</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ##### Latest Albums Area End ##### -->
-
 <!-- ##### Buy Now Area Start ##### -->
 <section class="oneMusic-buy-now-area has-fluid bg-gray section-padding-100">
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
         <div class="section-heading style-2">
-          <p>See what’s new</p>
-          <h2>Buy What’s New</h2>
+          <p></p>
+          <h2>Bài Hát</h2>
         </div>
       </div>
     </div>
-
+    <div>
       <!-- song list -->
       <app-all-song (songId)="getSongId($event)"></app-all-song>
-
-
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
+          <a href="#" class="btn oneMusic-btn">Tải Thêm<i class="fa fa-angle-double-right"></i></a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <!-- ##### Buy Now Area End ##### -->
@@ -165,16 +63,13 @@
         <div class="featured-artist-content">
           <!-- Section Heading -->
           <div class="section-heading white text-left mb-30">
-            <p>See what’s new</p>
-            <h2>Buy What’s New</h2>
+            <p>Có gì mới</p>
+            <h2>Bài hát có lượt nghe nhiều nhất</h2>
           </div>
-          <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce
-            nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus
-            nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non
-            eros.</p>
+          <p>ÂM NHẠC không chỉ để nghe âm nhạc còn là MUSIC</p>
           <div class="song-play-area">
             <div class="song-name">
-              <p>01. Main Hit Song</p>
+              <p>01. Hit Song</p>
             </div>
             <audio preload="auto" controls>
               <source
@@ -196,8 +91,8 @@
       <div class="col-12 col-lg-4">
         <div class="weeks-top-area mb-100">
           <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
-            <p>See what’s new</p>
-            <h2>This week’s top</h2>
+            <p>Có gì mới</p>
+            <h2>Playlist </h2>
           </div>
 
           <!-- Single Top Item -->
@@ -273,8 +168,8 @@
       <div class="col-12 col-lg-4">
         <div class="new-hits-area mb-100">
           <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
-            <p>See what’s new</p>
-            <h2>New Hits</h2>
+            <p>Có gì mới</p>
+            <h2>Bài Hát Mới</h2>
           </div>
           <app-new-list-song (songId)="getSongId($event)"></app-new-list-song>
         </div>
@@ -283,8 +178,8 @@
       <div class="col-12 col-lg-4">
         <div class="popular-artists-area mb-100">
           <div class="section-heading text-left mb-50 wow fadeInUp" data-wow-delay="50ms">
-            <p>See what’s new</p>
-            <h2>Popular Artist</h2>
+            <p>Có gì mới</p>
+            <h2>Nghệ Sĩ</h2>
           </div>
 
           <!-- Single Artist -->
@@ -371,8 +266,7 @@
     <div class="row">
       <div class="col-12">
         <div class="section-heading white wow fadeInUp" data-wow-delay="100ms">
-          <p>See what’s new</p>
-          <h2>Get In Touch</h2>
+          <h2>Liên lạc</h2>
         </div>
       </div>
     </div>
@@ -385,7 +279,7 @@
             <div class="row">
               <div class="col-md-6 col-lg-4">
                 <div class="form-group wow fadeInUp" data-wow-delay="100ms">
-                  <input type="text" class="form-control" id="name" placeholder="Name">
+                  <input type="text" class="form-control" id="name" placeholder="Họ Tên">
                 </div>
               </div>
               <div class="col-md-6 col-lg-4">
@@ -393,19 +287,14 @@
                   <input type="email" class="form-control" id="email" placeholder="E-mail">
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="form-group wow fadeInUp" data-wow-delay="300ms">
-                  <input type="text" class="form-control" id="subject" placeholder="Subject">
-                </div>
-              </div>
               <div class="col-12">
                 <div class="form-group wow fadeInUp" data-wow-delay="400ms">
                   <textarea name="message" class="form-control" id="message" cols="30" rows="10"
-                            placeholder="Message"></textarea>
+                            placeholder="Thông điệp"></textarea>
                 </div>
               </div>
               <div class="col-12 text-center wow fadeInUp" data-wow-delay="500ms">
-                <button class="btn oneMusic-btn mt-30" type="submit">Send <i class="fa fa-angle-double-right"></i>
+                <button class="btn oneMusic-btn mt-30" type="submit">Gửi<i class="fa fa-angle-double-right"></i>
                 </button>
               </div>
             </div>

@@ -17,6 +17,7 @@ import {SearchPageComponent} from "./pages/search-page/search-page.component";
 import {CreatePlaylistComponent} from "./playlistManage/create-playlist/create-playlist.component";
 import {MyPlaylistComponent} from "./playlistManage/my-playlist/my-playlist.component";
 import {DetailPlaylistComponent} from "./playlistManage/detail-playlist/detail-playlist.component";
+import {UpdatePlaylistComponent} from "./playlistManage/update-playlist/update-playlist.component";
 
 // @ts-ignore
 // @ts-ignore
@@ -90,6 +91,10 @@ const routes: Routes = [
   {
     path: 'playlist/:id/detail',
     component: DetailPlaylistComponent,
+  },
+  {
+    path: 'playlist/:id/update',
+    component: UpdatePlaylistComponent
   }
 
 ];

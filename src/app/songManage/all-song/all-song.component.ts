@@ -19,7 +19,6 @@ export class AllSongComponent implements OnInit {
 
   getAll() {
     this.serviceSong.getAll().subscribe(res => {
-      console.log(res)
       this.songs = res
     })
   }

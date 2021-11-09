@@ -46,7 +46,7 @@
     <div class="row">
       <div class="col-12">
         <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-          <a (click)="onMore()" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
+          <a (click)="onMore()" class="btn oneMusic-btn">Tải thêm <i class="fa fa-angle-double-right"></i></a>
         </div>
       </div>
     </div>
@@ -57,17 +57,7 @@
       <div class="row">
         <div class="col-12 col-sm-6 col-md-4 col-lg-2"  *ngFor="let playlist of moreDataPlaylist">
           <div class="single-album-area wow fadeInUp" data-wow-delay="100ms" >
-            <div    >
-          <!--    <div class="album-thumb" >
-                <a href="">
-                  <img src="{{playlist.image}}" alt="">
-                  &lt;!&ndash; Album Price &ndash;&gt;
-                </a>
-                &lt;!&ndash; Play Icon &ndash;&gt;
-                <div class="play-icon">
-                  <a href=""  class="video&#45;&#45;play&#45;&#45;btn"><span class="icon-play-button"></span></a>
-                </div>
-              </div>-->
+            <div>
               <div  class="album-info">
                 <a href="" (click)="getPlaylist($event,playlist.id)">
                   {{playlist.name}}
@@ -83,7 +73,7 @@
     <div class="row">
       <div class="col-12">
         <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-          <a (click)="onMorePlaylist()" class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
+          <a (click)="onMorePlaylist()" class="btn oneMusic-btn">Tải thêm <i class="fa fa-angle-double-right"></i></a>
         </div>
       </div>
     </div>

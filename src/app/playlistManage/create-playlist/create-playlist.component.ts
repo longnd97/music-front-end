@@ -60,6 +60,4 @@ export class CreatePlaylistComponent implements OnInit {
     // @ts-ignore
     return this.createPlaylistForm.get('description');
   }
-
-
 }

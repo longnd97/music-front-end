@@ -20,7 +20,11 @@ export class PlaylistService {
   }
 
   createPlaylist(data: any): Observable<any> {
-    return this.http.post(environment.api_url + 'playlists/create-playlist', data, {headers: this.getAuthHeaders()})
+    return this.http.post(environment.api_url + 'playlists/create-playlist', data, {headers: this.getAuthHeaders()});
+  }
+
+  updatePlaylist(id:number, data: any): Observable<any>{
+    return this.http.post(environment.api_url + 'playlists/' + id + '/update', data, {headers: this.getAuthHeaders()});
   }
 
   getCategories(): Observable<any> {

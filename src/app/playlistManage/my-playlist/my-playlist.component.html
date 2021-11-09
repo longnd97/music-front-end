@@ -20,13 +20,13 @@
             <tr *ngFor=" let playlist of myPlaylists">
               <td>
                 <img src="https://img.icons8.com/material-outlined/24/000000/musical-notes.png"/>
-                <button (click)="getPlaylist(playlist.id)">{{playlist.name}}</button>
+                <button mat-button color="accent" (click)="getPlaylist(playlist.id)">{{playlist.name}}</button>
               </td>
-<!--              <td>-->
-<!--                <button mat-icon-button (click)="updatePlaylist(playlist.id)" color="primary">-->
-<!--                  <mat-icon>border_color</mat-icon>-->
-<!--                </button>-->
-<!--              </td>-->
+              <td>
+                <button mat-icon-button (click)="updatePlaylist(playlist.id)" color="primary">
+                  <mat-icon>border_color</mat-icon>
+                </button>
+              </td>
 <!--              <td>-->
 <!--                <button mat-icon-button (click)="deletePlaylist(playlist.id)" color="warn">-->
 <!--                  <mat-icon>delete</mat-icon>-->

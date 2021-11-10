@@ -1,0 +1,86 @@
+<section class="breadcumb-area bg-img bg-overlay" style="background-image: url(assets/img/bg-img/bg-2.jpg)">
+  <div class="bradcumbContent">
+    <p>Âm nhạc không chỉ để nghe</p>
+    <h1>Âm nhạc còn là MUSIC</h1>
+  </div>
+</section>
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <h2>Tạo mới bài hát</h2>
+          <div class="create-song-form">
+            <form *ngIf="createSingerForm" [formGroup]="createSingerForm" (ngSubmit)="submit()" novalidate>
+              <div class="form-group">
+                <label>Tên ca sĩ</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="name" class="form-control"
+                       placeholder="Vui lòng nhập tên ca sĩ">
+              </div>
+              <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="name?.errors?.required">
+                  Tên ca sĩ không được để trống
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Giới tính:</label><strong class="text-danger">*</strong>
+                <select class="form-control" (change)="selectedGender($event)" id="">
+                  <option value="Nam">Nam</option>
+                  <option value="Nữ">Nữ</option>
+                  <option value="Khác">Khác</option>
+                </select>
+              </div>
+              <div *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="gender?.errors?.required">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Ngày sinh</label><strong class="text-danger">*</strong>
+                <input type="date" formControlName="date_of_birth" class="form-control"
+                       placeholder="Vui lòng nhập ngày sinh">
+              </div>
+              <div *ngIf="date_of_birth?.invalid && (date_of_birth?.dirty || date_of_birth?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="date_of_birth?.errors?.required">
+                  Vui lòng nhập ngày sinh
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Nhóm nhạc:</label><strong class="text-danger">*</strong>
+                <input type="text" formControlName="band" class="form-control"
+                       placeholder="Vui lòng nhập nhóm nhạc đang hoạt động">
+              </div>
+              <div *ngIf="band?.invalid && (band?.dirty || band?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="band?.errors?.required">
+                  Vui lòng nhập nhóm nhạc
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Thông tin thêm:</label><strong class="text-danger">*</strong>
+                <textarea type="text" formControlName="information" class="form-control"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Tiểu sử hoạt động:</label><strong class="text-danger">*</strong>
+                <textarea type="text" formControlName="story" class="form-control"></textarea>
+              </div>
+
+              <div style="text-align: left">Thêm ảnh:
+                <app-upload-avatar (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
+              </div>
+
+              <div style="text-align: left">Những thông tin có đánh dấu <strong class="text-danger">(*)</strong> là bắt
+                buộc nhập
+              </div>
+              <button type="submit" class="btn oneMusic-btn mt-30">Tạo ca sĩ</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

@@ -1,6 +1,6 @@
-<div *ngFor="let song of newSongs">
+<div >
   <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
-       data-wow-delay="200ms">
+       data-wow-delay="200ms" *ngFor="let song of newSongs">
     <a href="#" (click)="playSong($event,song.id)" class="first-part d-flex align-items-center">
       <div class="thumbnail">
         <img src="{{song.image}}" alt="">
@@ -11,14 +11,15 @@
       </div>
     </a>
     <div>
-      <button *ngIf="check" class="song-liked-{{song.id}}" (click)="Liked(song.id)" mat-button color="primary">
-        <mat-icon>thump_up</mat-icon>
-      </button>
-      <button *ngIf="!check" id="song-unliked-{{song.id}}" (click)="Liked(song.id)" mat-button color="accent">
+      <a name="song-liked-{{song.id}}" (click)="Liked(song.id)" mat-button color="{{color}}">
+        <mat-icon id="{{song.id}}" >{{status}}</mat-icon>
+      </a>
+     <!-- <button *ngIf="!check" id="song-unliked-{{song.id}}" (click)="Liked(song.id)" mat-button color="accent">
         <mat-icon>thumb_down</mat-icon>
-      </button>
+      </button>-->
     </div>
   </div>
   <hr>
 </div>
 
+<!--mat-button color="{{color}}"-->

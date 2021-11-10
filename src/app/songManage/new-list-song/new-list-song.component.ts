@@ -10,7 +10,9 @@ export class NewListSongComponent implements OnInit {
   newSongs: any;
   user_id?: any;
   @Output() songId = new EventEmitter<number>();
-  check = true;
+  check = false;
+  status="thumb_up";
+  color?:string;
 
   constructor(private songService: SongService) {
   }
@@ -36,16 +38,20 @@ export class NewListSongComponent implements OnInit {
       'user_id': this.user_id,
       'song_id': songId
     }
+    console.log(data)
     this.songService.Liked(data).subscribe(res => {
       console.log(res)
       if (res.status === 'liked') {
-        this.check = false;
+        this.status="thumb_up";
+        this.color="primary";
         // // @ts-ignore
         // document.getElementsByClassName('song-liked-' + songId)[0].style.visibility = 'hidden';
         // // @ts-ignore
         // document.getElementsByClassName('song-unliked-' + songId)[0].style.visibility = 'show';
       } else {
-        this.check = true;
+
+        this.status="thumb_down"
+        this.color="accent"
         // // @ts-ignore
         // document.getElementsByClassName('song-liked-' + songId)[0].style.visibility = 'show';
         // // @ts-ignore

@@ -42,6 +42,7 @@ import {ManyListensListSongComponent} from './songManage/many-listens-list-song/
 import {UpdatePlaylistComponent} from './playlistManage/update-playlist/update-playlist.component';
 import { CreateSingerComponent } from './singerManage/create-singer/create-singer.component';
 import { AllSingerComponent } from './singerManage/all-singer/all-singer.component';
+import { ManyLikedListSongComponent } from './songManage/many-liked-list-song/many-liked-list-song.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { AllSingerComponent } from './singerManage/all-singer/all-singer.compone
     DetailPlaylistComponent,
     ManyListensListSongComponent,
     UpdatePlaylistComponent,
+    ManyLikedListSongComponent,
     CreateSingerComponent,
     AllSingerComponent,
   ],

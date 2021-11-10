@@ -48,7 +48,6 @@ export class UpdateUserComponent implements OnInit {
     this.userService.getInfoUserLogin().subscribe((res: User) => {
       this.user = res;
       this.avatar=res.avatar;
-      console.log(this.user);
       this.formUpdate?.setValue({
         full_name: res.full_name,
         phone: res.phone,
@@ -93,6 +92,7 @@ export class UpdateUserComponent implements OnInit {
   get address() {
     return this.formUpdate?.get('address')
   }
+
   onUpload($event: any) {
     this.selectedFile = $event.target.files[0];
     this.checkUploadAvatar = true;
@@ -111,6 +111,4 @@ export class UpdateUserComponent implements OnInit {
         console.log(`Failed to upload avatar and get link ${error}`);
       })
   }
-
-
 }

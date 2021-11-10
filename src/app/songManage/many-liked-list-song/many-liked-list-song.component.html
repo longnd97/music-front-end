@@ -1,0 +1,23 @@
+<div *ngFor="let song of manyLikedSongs">
+  <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
+       data-wow-delay="200ms">
+    <a href="#" (click)="playSong($event,song.id)" class="first-part d-flex align-items-center">
+      <div class="thumbnail">
+        <img src="{{song.image}}" alt="">
+      </div>
+      <div class="content-">
+        <h6>{{song.name}}</h6>
+        <p>{{song.author}}</p>
+        <p>{{song.count_liked}} lượt thích</p>
+      </div>
+    </a>
+<!--    <div style="text-align: center">-->
+<!--      <button *ngIf="icon&&color" (click)="Liked(song.id)" mat-button-->
+<!--              color="{{color[song.id]}}">-->
+<!--        <mat-icon>{{icon[song.id]}}</mat-icon>-->
+<!--      </button>-->
+<!--      <p>{{message[song.id]}}</p>-->
+<!--    </div>-->
+  </div>
+  <hr>
+</div>

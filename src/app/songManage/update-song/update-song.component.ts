@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {Component,EventEmitter, Output, OnInit} from '@angular/core';
 import {SongService} from "../../services/song.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {first} from "rxjs/operators";
+import {AngularFireStorage, AngularFireStorageReference} from "@angular/fire/storage";
+
 
 @Component({
   selector: 'app-update-song',
@@ -16,13 +18,19 @@ export class UpdateSongComponent implements OnInit {
   selected = '';
   id = this.routerGetIdURL.snapshot.params.id;
   data: any;
-  image?: string;
-
+  image?: string | undefined = '';
+  selectedFile?: File;
+  ref?: AngularFireStorageReference;
+  downloadURL?: string;
+  checkUploadAvatar = false;
+  @Output()
+  giveURLtoCreate = new EventEmitter<string>();
 
   constructor(private songService: SongService,
               private fb: FormBuilder,
               private routerGetIdURL: ActivatedRoute,
-              private router: Router ) {
+              private router: Router,
+              private afStorage: AngularFireStorage) {
   }
 
   ngOnInit(): void {
@@ -38,6 +46,8 @@ export class UpdateSongComponent implements OnInit {
       category_id: ['', [Validators.required]],
     })
     this.songService.detailSongId(id).subscribe(res => {
+      this.image = res.image;
+      console.log(this.image);
       this.updateSongForm?.setValue({
         name: res.name,
         description: res.description,
@@ -52,14 +62,14 @@ export class UpdateSongComponent implements OnInit {
 
   submit() {
     // @ts-ignore
-    this.updateSongForm.controls.image.setValue(this.image);
+    // this.updateSongForm.controls.image.setValue(this.image);
     // @ts-ignore
     this.updateSongForm.controls.file_mp3.setValue(this.file_mp3);
     // @ts-ignore
     this.updateSongForm.controls.category_id.setValue(this.selected);
     let id = this.id;
     let data = this.updateSongForm?.value;
-    this.songService.updateSong(id, data).pipe(first()).subscribe(res=>{
+    this.songService.updateSong(id, data).subscribe(res=>{
       if (res.status === 'success'){
         alert(res.message);
         this.router.navigate(['songs/my-songs']).then();
@@ -105,5 +115,24 @@ export class UpdateSongComponent implements OnInit {
   get album() {
     // @ts-ignore
     return this.updateSongForm.get('album');
+  }
+
+  onUpload($event: any) {
+    this.selectedFile = $event.target.files[0];
+    this.checkUploadAvatar = true;
+    const id = Math.random().toString(36).substring(2); //Tạo ra 1 name riêng cho mỗi DB firebase;
+    this.ref = this.afStorage.ref(id);
+    this.ref.put(this.selectedFile).then(snapshot => {
+      return snapshot.ref.getDownloadURL(); //Tra ve 1 chuoi sieu van ban tren FB.
+    }).then(downloadURL => { //chuyen giao link tu nhung component khac nhau khi su upload
+      this.downloadURL = downloadURL;
+      this.giveURLtoCreate.emit(this.downloadURL);
+      this.checkUploadAvatar = false;
+      this.image='';
+      return this.downloadURL;
+    })
+      .catch(error => {
+        console.log(`Failed to upload avatar and get link ${error}`);
+      })
   }
 }

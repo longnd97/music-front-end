@@ -24,6 +24,7 @@ export class ManyListensListSongComponent implements OnInit {
 
   getSongsManyListensSongs() {
     this.songService.getSongManyListens().subscribe(res => {
+      console.log(res);
       this.manyListensSongs = res;
       for (let song of res) {
         if (song.status == 1) {

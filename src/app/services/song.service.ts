@@ -50,6 +50,10 @@ export class SongService {
     return this.http.get(environment.api_url + 'songs/many-listens');
   }
 
+  getSongManyLiked(): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/many-liked');
+  }
+
   detailSong(id: any): Observable<any> {
     return this.http.get(environment.api_url + 'songs/' + id + '/play');
   }

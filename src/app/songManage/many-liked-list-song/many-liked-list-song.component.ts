@@ -2,45 +2,44 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SongService} from "../../services/song.service";
 
 @Component({
-  selector: 'app-new-list-song',
-  templateUrl: './new-list-song.component.html',
-  styleUrls: ['./new-list-song.component.css']
+  selector: 'app-many-liked-list-song',
+  templateUrl: './many-liked-list-song.component.html',
+  styleUrls: ['./many-liked-list-song.component.css']
 })
-export class NewListSongComponent implements OnInit {
-  newSongs: any;
+export class ManyLikedListSongComponent implements OnInit {
+  manyLikedSongs: any;
   user_id?: any;
-  @Output() songId = new EventEmitter<number>();
-  check = true;
   color?: string[] = [];
   icon?: string[] = [];
   message: string[] = [];
+  @Output() songId = new EventEmitter<number>();
 
   constructor(private songService: SongService) {
   }
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('id');
-    this.getMySongs();
+    this.getSongsManyLikedSongs();
   }
 
-  getMySongs() {
-    this.songService.getNewSongs().subscribe(res => {
-      this.newSongs = res;
+  getSongsManyLikedSongs() {
+    this.songService.getSongManyLiked().subscribe(res => {
+      this.manyLikedSongs = res;
       for (let song of res) {
         if (song.status == 1) {
           // @ts-ignore
-          this.color[song.song_id] = 'primary';
+          this.color[song.id] = 'primary';
           // @ts-ignore
-          this.icon[song.song_id] = 'thumb_up';
+          this.icon[song.id] = 'thumb_up';
           // @ts-ignore
-          this.message[song.song_id] = 'Đã thích';
+          this.message[song.id] = 'Đã thích';
         } else {
           // @ts-ignore
-          this.color[song.song_id] = '';
+          this.color[song.id] = '';
           // @ts-ignore
-          this.icon[song.song_id] = 'thumb_up_off_alt';
+          this.icon[song.id] = 'thumb_up_off_alt';
           // @ts-ignore
-          this.message[song.song_id] = 'Thích';
+          this.message[song.id] = 'Thích';
         }
       }
     });

@@ -2,30 +2,29 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {SongService} from "../../services/song.service";
 
 @Component({
-  selector: 'app-new-list-song',
-  templateUrl: './new-list-song.component.html',
-  styleUrls: ['./new-list-song.component.css']
+  selector: 'app-many-listens-list-song',
+  templateUrl: './many-listens-list-song.component.html',
+  styleUrls: ['./many-listens-list-song.component.css']
 })
-export class NewListSongComponent implements OnInit {
-  newSongs: any;
+export class ManyListensListSongComponent implements OnInit {
+  manyListensSongs: any;
   user_id?: any;
-  @Output() songId = new EventEmitter<number>();
-  check = true;
   color?: string[] = [];
   icon?: string[] = [];
   message: string[] = [];
+  @Output() songId = new EventEmitter<number>();
 
   constructor(private songService: SongService) {
   }
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('id');
-    this.getMySongs();
+    this.getSongsManyListensSongs();
   }
 
-  getMySongs() {
-    this.songService.getNewSongs().subscribe(res => {
-      this.newSongs = res;
+  getSongsManyListensSongs() {
+    this.songService.getSongManyListens().subscribe(res => {
+      this.manyListensSongs = res;
       for (let song of res) {
         if (song.status == 1) {
           // @ts-ignore
@@ -57,6 +56,7 @@ export class NewListSongComponent implements OnInit {
       'song_id': songId
     }
     this.songService.Liked(data).subscribe(res => {
+      console.log(res);
       if (res.status === 'liked') {
         // @ts-ignore
         this.color[songId] = 'primary';
@@ -73,3 +73,4 @@ export class NewListSongComponent implements OnInit {
     });
   }
 }
+

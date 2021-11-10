@@ -1,7 +1,7 @@
-<div *ngFor="let song of newSongs">
+<div *ngFor="let song of manyListensSongs;let i = index">
   <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
-       data-wow-delay="200ms">
-    <a href="#" (click)="playSong($event,song.song_id)" class="first-part d-flex align-items-center">
+       data-wow-delay="100ms">
+    <a href="#" (click)="playSong($event,song.id)" class="first-part d-flex align-items-center">
       <div class="thumbnail">
         <img src="{{song.image}}" alt="">
       </div>
@@ -16,12 +16,6 @@
         <mat-icon>{{icon[song.song_id]}}</mat-icon>
       </button>
       <p>{{message[song.song_id]}}</p>
-    </div>
-    <div style="text-align: center">
-      <button mat-button color="primary">
-        <mat-icon>comment</mat-icon>
-      </button>
-      <p>Bình luận</p>
     </div>
   </div>
   <hr>

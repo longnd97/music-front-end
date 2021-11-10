@@ -63,7 +63,15 @@
               </div>
 
               <div style="text-align: left">Sửa ảnh:
-                <app-upload-avatar (giveURLtoCreate)="uploadAvatar($event)"></app-upload-avatar>
+                <input type="text" formControlName="image" [ngModel]="downloadURL" [value]="" hidden>
+                <img style="width: 150px" [src]="image" alt="">
+                <div>
+                  <div *ngIf="downloadURL" style="margin-bottom: 10px; margin-top: 10px">
+                    <img [src]="downloadURL" style="width: 150px; height: auto">
+                  </div>
+                  <input *ngIf="!downloadURL" type="file" accept="image/*" (change)="onUpload($event)"><br>
+                  <mat-spinner *ngIf="checkUploadAvatar"></mat-spinner>
+                </div>
               </div>
 
               <div style="text-align: left" >Sửa file mp3:

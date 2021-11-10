@@ -37,7 +37,6 @@ export class SearchComponent implements OnInit {
     // @ts-ignore
     if (this.value){
       this.dataService.changeMessage(this.value);
-      console.log(this.value)
       this.router.navigate(['songs/search/'+this.value])
     }else {
       this.value="";

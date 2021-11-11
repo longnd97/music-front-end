@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UserService} from "../../services/user.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../interfaces/user";
-import {first} from "rxjs/operators";
 import {AngularFireStorage, AngularFireStorageReference} from "@angular/fire/storage";
 
 @Component({
@@ -64,7 +63,6 @@ export class UpdateUserComponent implements OnInit {
       // @ts-ignore
      /* this.formUpdate.controls.avatar.setValue(this.avatar);*/
       let data = this.formUpdate?.value;
-      console.log(data);
       this.userService.updateById(id, data).subscribe(
         res => {
           this.router.navigate(['users']).then(() => {

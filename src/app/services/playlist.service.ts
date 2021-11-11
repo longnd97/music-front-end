@@ -62,4 +62,8 @@ export class PlaylistService {
   deletePlaylist(id: number): Observable<any>{
     return this.http.get(environment.api_url + 'playlists/' + id +'/delete_playlist', {headers: this.getAuthHeaders()})
   }
+
+  playPlayList(id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'playlists/' + id + '/play-playlist', {headers: this.getAuthHeaders()})
+  }
 }

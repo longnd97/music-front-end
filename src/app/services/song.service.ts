@@ -42,8 +42,8 @@ export class SongService {
     return this.http.get(environment.api_url + 'songs/my-songs/' + id, this.getToken());
   }
 
-  getNewSongs(): Observable<any> {
-    return this.http.get(environment.api_url + 'songs/new-songs/');
+  getNewSongs(user_id: number): Observable<any> {
+    return this.http.get(environment.api_url + 'songs/' + user_id + '/new-songs');
   }
 
   getSongManyListens(): Observable<any> {

@@ -41,7 +41,6 @@ export class CreateSongComponent implements OnInit {
     // @ts-ignore
     this.createSongForm.controls.category_id.setValue(this.selected);
     let data = this.createSongForm?.value;
-    console.log(data)
     this.songService.createSong(data).subscribe(res => {
       if (res.status === 'success') {
         alert(res.message);

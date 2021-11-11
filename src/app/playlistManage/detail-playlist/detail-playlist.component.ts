@@ -51,7 +51,6 @@ export class DetailPlaylistComponent implements OnInit {
       'song_id': id,
     }
     this.playlistService.addSong(data).subscribe(res => {
-      console.log(res)
       this.getSongs();
       if (res.status === 'errorLimit') {
         alert(res.message);
@@ -71,7 +70,6 @@ export class DetailPlaylistComponent implements OnInit {
   playSong(event: any, songId: number) {
     event.preventDefault();
     this.playlistService.getSongId(songId).subscribe(res => {
-      console.log(res[0].song_id)
       this.songId = res[0].song_id;
     });
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 import {SingerService} from "../../services/singer.service";
@@ -13,18 +13,20 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 export class CreateSingerComponent implements OnInit {
   createSingerForm?: FormGroup;
   avatar?: string;
-  selected='';
+  selected = '';
+
   constructor(
     private singerService: SingerService,
     private fb: FormBuilder
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.createSingerForm = this.fb.group({
       name: ['', [Validators.required]],
       gender: ['', [Validators.required]],
-      date_of_birth: ['',[Validators.required]],
-      band: ['',[Validators.required]],
+      date_of_birth: ['', [Validators.required]],
+      band: ['', [Validators.required]],
       information: ['', [Validators.required]],
       story: ['', [Validators.required]],
       avatar: [''],
@@ -44,15 +46,16 @@ export class CreateSingerComponent implements OnInit {
       if (res.status === 'success') {
         alert(res.message);
         window.location.reload();
-      } else
-      {
+      } else {
         alert(res.message);
       }
     });
   }
+
   uploadAvatar(event: string) {
     this.avatar = event;
   }
+
   selectedGender(event: any) {
     this.selected = event.target.value;
   }
@@ -61,18 +64,23 @@ export class CreateSingerComponent implements OnInit {
   get name() {
     return this.createSingerForm?.get('name');
   }
+
   get gender() {
     return this.createSingerForm?.get('gender');
   }
+
   get date_of_birth() {
     return this.createSingerForm?.get('date_of_birth');
   }
+
   get band() {
     return this.createSingerForm?.get('band');
   }
+
   get information() {
     return this.createSingerForm?.get('information');
   }
+
   get story() {
     return this.createSingerForm?.get('story');
   }

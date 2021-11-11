@@ -3,14 +3,10 @@
     <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
       <div>
         <div class="album-thumb">
-          <img src="{{song.image}}" alt="">
-          <!-- Album Price -->
-          <div class="album-price">
-            <p>$0.90</p>
-          </div>
-          <!-- Play Icon -->
+          <img style="width: 250px; height: 200px" src="{{song.image}}" alt="">
           <div class="play-icon">
-            <a href="#" class="video--play--btn"><span class="icon-play-button"></span></a>
+            <a href="#" (click)="playSong($event,song.id)" class="video--play--btn"><span
+              class="icon-play-button"></span></a>
           </div>
         </div>
         <div class="album-info">
@@ -27,7 +23,7 @@
 <div class="row">
   <div class="col-12">
     <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-      <a (click)="onMore()"  class="btn oneMusic-btn">Tải thêm<i class="fa fa-angle-double-right"></i></a>
+      <a (click)="onMore()" class="btn oneMusic-btn">Tải thêm<i class="fa fa-angle-double-right"></i></a>
     </div>
   </div>
 </div>

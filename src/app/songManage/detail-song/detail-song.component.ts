@@ -28,6 +28,7 @@ export class DetailSongComponent implements OnInit, OnChanges {
 
   loadSongList(songId: number | undefined) {
     this.songService.detailSong(songId).subscribe(res => {
+      this.listSong = [];
       const song = {
         title: res.name,
         link: res.file_mp3

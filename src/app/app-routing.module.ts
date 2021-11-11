@@ -18,6 +18,8 @@ import {CreatePlaylistComponent} from "./playlistManage/create-playlist/create-p
 import {MyPlaylistComponent} from "./playlistManage/my-playlist/my-playlist.component";
 import {DetailPlaylistComponent} from "./playlistManage/detail-playlist/detail-playlist.component";
 import {UpdatePlaylistComponent} from "./playlistManage/update-playlist/update-playlist.component";
+import {CreateSingerComponent} from "./singerManage/create-singer/create-singer.component";
+import {AllSingerComponent} from "./singerManage/all-singer/all-singer.component";
 
 // @ts-ignore
 // @ts-ignore
@@ -94,8 +96,17 @@ const routes: Routes = [
   },
   {
     path: 'playlist/:id/update',
-    component: UpdatePlaylistComponent
+    component: UpdatePlaylistComponent,
+  },
+  {
+    path: 'singers/create',
+    component: CreateSingerComponent,
+  },
+  {
+    path:'singers/list',
+    component: AllSingerComponent,
   }
+
 
 ];
 

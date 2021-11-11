@@ -90,6 +90,7 @@ export class UpdateUserComponent implements OnInit {
   get address() {
     return this.formUpdate?.get('address')
   }
+
   onUpload($event: any) {
     this.selectedFile = $event.target.files[0];
     this.checkUploadAvatar = true;
@@ -108,6 +109,4 @@ export class UpdateUserComponent implements OnInit {
         console.log(`Failed to upload avatar and get link ${error}`);
       })
   }
-
-
 }

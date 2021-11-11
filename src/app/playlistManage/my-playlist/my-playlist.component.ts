@@ -39,7 +39,7 @@ export class MyPlaylistComponent implements OnInit {
 
   deletePlaylist(id: number) {
     if (confirm(" Bạn có chắc chắn muốn xoá playlist ? ")) {
-      this.playlistService.delete_playlist(id).subscribe(res => {
+      this.playlistService.deletePlaylist(id).subscribe(res => {
         this.getMyPlaylists();
       });
     }

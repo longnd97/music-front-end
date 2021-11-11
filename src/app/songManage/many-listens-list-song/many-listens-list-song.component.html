@@ -1,4 +1,4 @@
-<div *ngFor="let song of manyListensSongs;let i = index">
+<div *ngFor="let song of manyListensSongs">
   <div class="single-new-item d-flex align-items-center justify-content-between wow fadeInUp"
        data-wow-delay="100ms">
     <a href="#" (click)="playSong($event,song.id)" class="first-part d-flex align-items-center">
@@ -10,13 +10,6 @@
         <p>{{song.author}}</p>
       </div>
     </a>
-    <div style="text-align: center">
-      <button *ngIf="icon&&color" (click)="Liked(song.song_id)" mat-button
-              color="{{color[song.song_id]}}">
-        <mat-icon>{{icon[song.song_id]}}</mat-icon>
-      </button>
-      <p>{{message[song.song_id]}}</p>
-    </div>
   </div>
   <hr>
 </div>

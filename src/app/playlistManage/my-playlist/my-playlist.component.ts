@@ -12,6 +12,7 @@ export class MyPlaylistComponent implements OnInit {
   myPlaylists: any;
   playlist: any;
   id?: any;
+  playlistId: any;
 
   constructor(private playlistService: PlaylistService,
               private router: Router) {
@@ -42,6 +43,10 @@ export class MyPlaylistComponent implements OnInit {
         this.getMyPlaylists();
       });
     }
+  }
+
+  playPlaylist(playlistId: number) {
+    this.playlistId = playlistId;
   }
 }
 

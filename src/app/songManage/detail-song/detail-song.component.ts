@@ -1,6 +1,7 @@
 import {Component, Input, OnInit, ViewChild, OnChanges, SimpleChanges} from '@angular/core';
 import {SongService} from "../../services/song.service";
 import {Track} from "ngx-audio-player";
+import {PlaylistService} from "../../services/playlist.service";
 
 
 @Component({
@@ -10,13 +11,16 @@ import {Track} from "ngx-audio-player";
 })
 export class DetailSongComponent implements OnInit, OnChanges {
   @Input() songId?: number;
+  @Input() playlistId?: number;
   listSong: Track[] = [];
   msaapDisplayTitle = true;
-  msaapPageSizeOptions = [10, 20];
+  playlist = false;
+  msaapPageSizeOptions = [5, 10];
   song: any;
   id: any;
 
-  constructor(private songService: SongService) {
+  constructor(private songService: SongService,
+              private playlistService: PlaylistService) {
   }
 
   ngOnInit(): void {
@@ -30,12 +34,29 @@ export class DetailSongComponent implements OnInit, OnChanges {
       }
       this.listSong.unshift(song);
     });
-    // let element: HTMLElement = document.getElementsByClassName('play-track')[0] as HTMLElement;
-    // element.click();
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.loadSongList(changes.songId.currentValue);
+    if (this.playlistId) {
+      this.loadPlaylist(changes.playlistId.currentValue);
+    } else {
+      this.loadSongList(changes.songId.currentValue);
+    }
   }
 
+  loadPlaylist(playlistId: number) {
+    this.playlistService.playPlayList(playlistId).subscribe(res => {
+      if (this.listSong.length != 0) {
+        this.listSong = [];
+      }
+      for (let song of res) {
+        let playSong = {
+          'title': song.name,
+          'link': song.file_mp3
+        }
+        this.listSong.push(playSong);
+      }
+      this.playlist = true;
+    });
+  }
 }

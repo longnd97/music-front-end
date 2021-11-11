@@ -26,7 +26,6 @@ export class UserComponent implements OnInit {
 
   getUserLogin() {
     this.userService.getInfoUserLogin().subscribe(res => {
-      console.log(res)
       this.data = res
     })
   }

@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    window.scroll(0,320);
+    window.scroll(0, 320);
     this.registerForm = this.fb.group({
       email: ['', [Validators.required]],
       user_name: ['', [Validators.required]],
@@ -43,9 +43,15 @@ export class RegisterComponent implements OnInit {
         this.route.navigate(['login']);
       }
     }, (error) => {
-      this.errEmail = error.error.email[0];
-      this.errUserName = error.error.user_name[0];
-      this.errPassword = error.error.password[0];
+      if (error.error.email) {
+        this.errEmail = error.error.email[0];
+      }
+      if (error.error.user_name) {
+        this.errUserName = error.error.user_name[0];
+      }
+      if (error.error.password) {
+        this.errPassword = error.error.password[0];
+      }
     })
   }
 }

@@ -24,9 +24,8 @@
                        placeholder="Vui lòng nhập mật khẩu">
               </div>
               <div class="alert alert-danger" *ngIf="errLogin">
-                  {{errLogin}}
+                {{errLogin}}
               </div>
-
               <button type="submit" class="btn oneMusic-btn mt-30" [disabled]="loginForm.invalid">Đăng nhập</button>
             </form>
           </div>

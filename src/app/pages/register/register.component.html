@@ -11,7 +11,7 @@
         <div class="login-content">
           <h2>Đăng ký</h2>
           <div class="register-form">
-            <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="submit()" novalidate>
+            <form *ngIf="registerForm" [formGroup]="registerForm" (ngSubmit)="submit()">
               <div class="form-group">
                 <label>Email</label><strong class="text-danger">*</strong>
                 <input type="email" formControlName="email" class="form-control" placeholder="Vui lòng nhập Email">

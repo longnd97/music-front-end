@@ -27,12 +27,27 @@
               <app-search></app-search>
               <ul>
                 <li><a routerLink="/">Trang chủ</a></li>
-                <li><a routerLink="songs/my-songs">Bài hát của tôi</a></li>
-                <li><a routerLink="/songs/create">Thêm bài hát</a></li>
-                <li><a routerLink="/playlist/my-playlist">Playlist của tôi</a></li>
-                <li><a routerLink="/playlist/create">Thêm playlist</a></li>
-                <li><a routerLink="/singers/list">Danh sách ca sĩ</a></li>
-                <li><a routerLink="/singers/create">Thêm ca sĩ</a></li>
+                <li>
+                  <button style="color: white!important;" mat-button [matMenuTriggerFor]="song"><a>Bài hát</a></button>
+                  <mat-menu #song="matMenu">
+                    <button mat-menu-item><a routerLink="songs/my-songs">Bài hát của tôi</a></button>
+                    <button mat-menu-item><a routerLink="/songs/create">Thêm bài hát</a></button>
+                  </mat-menu>
+                </li>
+                <li>
+                  <button style="color: white!important;" mat-button [matMenuTriggerFor]="playlist"><a>Playlist</a></button>
+                  <mat-menu #playlist="matMenu">
+                    <button mat-menu-item><a routerLink="/playlist/my-playlist">Playlist của tôi</a></button>
+                    <button mat-menu-item><a routerLink="/playlist/create">Thêm playlist</a></button>
+                  </mat-menu>
+                </li>
+                <li>
+                  <button style="color: white!important;" mat-button [matMenuTriggerFor]="singer"><a>Ca sĩ</a></button>
+                  <mat-menu #singer="matMenu">
+                    <button mat-menu-item><a routerLink="/singers/list">Danh sách ca sĩ</a></button>
+                    <button mat-menu-item><a routerLink="/singers/create">Thêm ca sĩ</a></button>
+                  </mat-menu>
+                </li>
               </ul>
               <!-- Login/Register & Cart Button -->
               <div style="margin: 0;padding: 0" class="login-register-cart-button d-flex align-items-center">
@@ -40,7 +55,9 @@
                 <div class="login-register-btn mr-50">
                   <a *ngIf="!check" routerLink="login">Đăng nhập/</a>
                   <button *ngIf="check" mat-button [matMenuTriggerFor]="beforeMenu" mat-icon-button>
-                    <a style="color: antiquewhite!important;"><img style="border-radius: 50%; width: 30%" *ngIf="imageUser" src="{{imageUser.avatar}}" alt="">Xin chào {{name}}</a>
+                    <a style="color: antiquewhite!important;"><img style="border-radius: 50%; width: 30%"
+                                                                   *ngIf="imageUser" src="{{imageUser.avatar}}" alt="">Xin
+                      chào {{name}}</a>
                   </button>
                   <mat-menu #beforeMenu="matMenu" xPosition="before">
                     <button mat-menu-item><a *ngIf="check" routerLink="users">Tài khoản</a></button>

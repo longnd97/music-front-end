@@ -30,7 +30,6 @@ export class CreatePlaylistComponent implements OnInit {
   submit(){
     this.createPlaylistForm.controls.category_id.setValue(this.selected);
     let data = this.createPlaylistForm?.value;
-    console.log(data)
     this.playListService.createPlaylist(data).subscribe(res => {
       if (res.status === 'success') {
         alert(res.message);

@@ -31,7 +31,6 @@ export class UpdatePlaylistComponent implements OnInit {
       category_id: ['', [Validators.required]],
     });
     this.playListService.getPlayList(id).subscribe(res=>{
-      console.log(res)
       this.updatePlaylistForm?.setValue({
         name: res.name,
         description: res.description,

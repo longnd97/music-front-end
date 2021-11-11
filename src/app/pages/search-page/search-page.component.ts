@@ -25,6 +25,7 @@ export class SearchPageComponent implements OnInit {
   limit = 1;
   isMore = true;
   moreDataPlaylist: any;
+  playlistId: any
 
 
   constructor(private songService: SongService,
@@ -36,8 +37,8 @@ export class SearchPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.getSongs();
-      this.getPlaylists()
+    this.getSongs();
+    this.getPlaylists()
   }
 
   getKey() {
@@ -85,9 +86,9 @@ export class SearchPageComponent implements OnInit {
     this.songId = songId;
   }
 
-  getPlaylist(event: any, id: number) {
+  getPlaylist(event: any, playlistId: number) {
     event.preventDefault();
-    this.router.navigate(['playlist/' + id + '/detail']);
+    this.playlistId = playlistId;
   }
 
   onMore() {

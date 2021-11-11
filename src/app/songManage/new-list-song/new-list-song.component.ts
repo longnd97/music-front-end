@@ -20,27 +20,27 @@ export class NewListSongComponent implements OnInit {
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('id');
-    this.getMySongs();
+    this.getNewSongs();
   }
 
-  getMySongs() {
-    this.songService.getNewSongs().subscribe(res => {
+  getNewSongs() {
+    this.songService.getNewSongs(this.user_id).subscribe(res => {
       this.newSongs = res;
       for (let song of res) {
         if (song.status == 1) {
           // @ts-ignore
-          this.color[song.song_id] = 'primary';
+          this.color[song.id] = 'primary';
           // @ts-ignore
-          this.icon[song.song_id] = 'thumb_up';
+          this.icon[song.id] = 'thumb_up';
           // @ts-ignore
-          this.message[song.song_id] = 'Đã thích';
+          this.message[song.id] = 'Đã thích';
         } else {
           // @ts-ignore
-          this.color[song.song_id] = '';
+          this.color[song.id] = '';
           // @ts-ignore
-          this.icon[song.song_id] = 'thumb_up_off_alt';
+          this.icon[song.id] = 'thumb_up_off_alt';
           // @ts-ignore
-          this.message[song.song_id] = 'Thích';
+          this.message[song.id] = 'Thích';
         }
       }
     });
@@ -57,7 +57,7 @@ export class NewListSongComponent implements OnInit {
       'song_id': songId
     }
     this.songService.Liked(data).subscribe(res => {
-      if (res.status === 'liked') {
+      if (res.status == 'liked') {
         // @ts-ignore
         this.color[songId] = 'primary';
         // @ts-ignore

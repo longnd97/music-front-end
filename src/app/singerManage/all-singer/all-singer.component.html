@@ -6,28 +6,46 @@
   </div>
 </section>
 
-<div class="row">
-  <div class="col-12 col-sm-6 col-md-4 col-lg-2" *ngFor="let singer of moreData">
-    <div class="single-album-area wow fadeInUp" data-wow-delay="100ms">
-      <div>
-        <div class="album-thumb">
-          <img src="{{singer.image}}" alt="">
-        </div>
-        <div class="album-info">
-          <a href="#" >
-            <h5>{{singer.name}}</h5>
-          </a>
-          <p>{{singer.date_of_birth}}</p>
+<section class="login-area section-padding-100">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <div class="login-content">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th colspan="4" style="text-align: center!important;">Danh sách ca sĩ</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor=" let singer of moreData">
+              <td>
+                <img src="{{singer.avatar}}" style="width: 50px" alt="">
+              </td>
+              <td class="song-name">
+                <a style="float: left;margin-left: 95px" href="">{{singer.name}}</a>
+              </td>
+              <!--<td>
+                <button mat-icon-button color="primary"><mat-icon>border_color</mat-icon></button>
+              </td>
+              <td>
+                <button mat-icon-button color="warn"><mat-icon>delete</mat-icon></button>
+              </td>-->
+            </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <div class="col-12">
+              <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
+                <a (click)="onMore()"  class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-12">
-    <div class="load-more-btn text-center wow fadeInUp" data-wow-delay="300ms">
-      <a (click)="onMore()"  class="btn oneMusic-btn">Load More <i class="fa fa-angle-double-right"></i></a>
-    </div>
-  </div>
-</div>
+</section>
+
+

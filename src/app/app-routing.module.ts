@@ -101,6 +101,7 @@ const routes: Routes = [
   {
     path: 'singers/create',
     component: CreateSingerComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:'singers/list',

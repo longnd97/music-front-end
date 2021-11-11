@@ -62,10 +62,21 @@
                 <label>Thông tin thêm:</label><strong class="text-danger">*</strong>
                 <textarea type="text" formControlName="information" class="form-control"></textarea>
               </div>
-
+              <div *ngIf="information?.invalid && (information?.dirty || information?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="information?.errors?.required">
+                  Vui lòng nhập thông tin
+                </div>
+              </div>
               <div class="form-group">
                 <label>Tiểu sử hoạt động:</label><strong class="text-danger">*</strong>
                 <textarea type="text" formControlName="story" class="form-control"></textarea>
+              </div>
+              <div *ngIf="story?.invalid && (story?.dirty || story?.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="story?.errors?.required">
+                  Vui lòng nhập tiểu sử hoạt động
+                </div>
               </div>
 
               <div style="text-align: left">Thêm ảnh:
@@ -75,7 +86,7 @@
               <div style="text-align: left">Những thông tin có đánh dấu <strong class="text-danger">(*)</strong> là bắt
                 buộc nhập
               </div>
-              <button type="submit" class="btn oneMusic-btn mt-30">Tạo ca sĩ</button>
+              <button type="submit" class="btn btn-success">Tạo ca sĩ</button>
             </form>
           </div>
         </div>

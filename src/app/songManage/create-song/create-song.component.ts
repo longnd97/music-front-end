@@ -70,22 +70,18 @@ export class CreateSongComponent implements OnInit {
   }
 
   get name() {
-    // @ts-ignore
-    return this.createSongForm.get('name');
+    return this.createSongForm?.get('name');
   }
 
   get description() {
-    // @ts-ignore
-    return this.createSongForm.get('description');
+    return this.createSongForm?.get('description');
   }
 
   get author() {
-    // @ts-ignore
-    return this.createSongForm.get('author');
+    return this.createSongForm?.get('author');
   }
 
   get album() {
-    // @ts-ignore
-    return this.createSongForm.get('album');
+    return this.createSongForm?.get('album');
   }
 }

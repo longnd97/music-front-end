@@ -15,6 +15,8 @@ export class DetailPlaylistComponent implements OnInit {
   name: any;
   songId?: number;
   countSong?: number;
+  check = false;
+  checkDelete = false;
 
   constructor(private playlistService: PlaylistService,
               private routerGetIdURL: ActivatedRoute,
@@ -46,12 +48,14 @@ export class DetailPlaylistComponent implements OnInit {
   }
 
   addSong(id: number) {
+    this.check = true;
     let data = {
       'playlist_id': this.playlist_id,
       'song_id': id,
     }
     this.playlistService.addSong(data).subscribe(res => {
       this.getSongs();
+      this.check = false;
       if (res.status === 'errorLimit') {
         alert(res.message);
       }
@@ -62,8 +66,10 @@ export class DetailPlaylistComponent implements OnInit {
   }
 
   deleteSong(id: number) {
+    this.checkDelete=true;
     this.playlistService.delete(id).subscribe(res => {
       this.getSongs();
+      this.checkDelete=false
     });
   }
 
